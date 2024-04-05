@@ -13,12 +13,12 @@ const MyCard2 = ({ product }) => {
   const [liked, setLiked] = useState(false);
 
   const handleLikeClick = async (productId) => {
+    setLiked(!liked);
     try {
       const response = await axios.put(
         `https://maker-app-backend.vercel.app/user/${userId}/liked/${productId}`
       );
-      console.log(response.data);
-      setLiked(!liked);
+      console.log(response.data);    
     } catch (error) {
       console.error("Error liking product :", error);
     }
