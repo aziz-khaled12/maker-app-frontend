@@ -16,11 +16,11 @@ const DropList = ({ title, items }) => {
   return (
     <>
       <div className="dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Link to={`http://localhost:3000/products/categories/${title}`}><div className="title"> {title} </div></Link>
+        <Link to={`/products/categories/${title}`}><div className="title"> {title} </div></Link>
         {isOpen && (
           <ul className="list" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {items.map((item, index) => (
-              <Link to={`http://localhost:3000/products/${title}/${item}`} key={index}><li >  {item}  </li></Link>
+              <Link to={`/products/${title}/${item}`} key={index}><li >  {item}  </li></Link>
             ))}
           </ul>
         )}

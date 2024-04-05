@@ -125,29 +125,28 @@ const ProductAdd = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("price", productData.price);
-    formData.append("name", productData.name);
-    formData.append("description", productData.description);
-
+    formData.append('price', productData.price);
+    formData.append('name', productData.name);
+    formData.append('description', productData.description);
     productData.selectedColors.forEach((color) => {
-      formData.append("colors[]", color); // Append each color individually
+      formData.append('colors', color);
     });
-
-    formData.append("materials", JSON.stringify(materialArray)); // Stringify array
-
-    productData.selectedSizes.forEach((size) => {
-      formData.append("sizes[]", size); // Append each size individually
+    const materialArray = productData.materials
+      .split(/[,\n;]/)
+      .map((material) => material.trim())
+      .filter((material) => material !== '');
+    materialArray.forEach((material) => {
+      formData.append('materials', material);
     });
-
-    productData.categories.forEach((category) => {
-      formData.append("categories[]", category); // Append each category individually
+    productData.selectedSizes.forEach((sizes) => {
+      formData.append('sizes', sizes);
     });
-
+    productData.categories.forEach((categories) => {
+      formData.append('categories', categories);
+    });
     for (let i = 0; i < productData.photos.length; i++) {
-      formData.append("photos", productData.photos[i]);
+      formData.append('photos', productData.photos[i]);
     }
-
-    formData.append("sellerId", sellerId);
     try {
       console.log(formData);
       const response = await axios.post(
