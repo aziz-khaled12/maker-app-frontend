@@ -3,7 +3,6 @@ import Hero from "../Hero/Hero";
 import Popular from "../PopularProducts/Popular";
 import TopVendors from "../TopVendors/TopVendors";
 import Slideshow from "../ProductSlider/Slideshow";
-import { Slide } from "react-slideshow-image";
 
 const token = localStorage.getItem("token");
 if (token) {
