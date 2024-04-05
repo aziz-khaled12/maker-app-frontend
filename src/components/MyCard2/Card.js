@@ -11,9 +11,10 @@ const MyCard2 = ({ product }) => {
   const token = localStorage.getItem("token");
   if (token) {
     setDecodedToken(JSON.parse(atob(token.split(".")[1])));
+    const userId = decodedToken.userId;
   }
   
-  const userId = decodedToken.userId;
+  
   const [liked, setLiked] = useState(false);
 
   const handleLikeClick = async (productId) => {
