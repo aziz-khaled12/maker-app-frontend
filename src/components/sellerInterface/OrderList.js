@@ -14,7 +14,7 @@ function OrderList() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/sellers/${sellerId}/orders`);
+                const response = await axios.get(`https://maker-app-backend.vercel.app/sellers/${sellerId}/orders`);
                 setSellerOrders(response.data.orders);
             } catch (error) {
                 console.error('Error fetching orders:', error);
@@ -28,7 +28,7 @@ function OrderList() {
         const fetchProductData = async () => {
             try {
                 const products = await Promise.all(sellerOrders.map(async order => {
-                    const response = await axios.get(`http://localhost:3001/products/${order.productId}`);
+                    const response = await axios.get(`https://maker-app-backend.vercel.app/products/${order.productId}`);
                     return response.data;
                 }));
                 setProductData(products);
@@ -42,7 +42,7 @@ function OrderList() {
 
     const deleteOrder = async (orderId) => {
         try {
-            await axios.delete(`http://localhost:3001/${sellerId}/orders/${orderId}`);
+            await axios.delete(`https://maker-app-backend.vercel.app/${sellerId}/orders/${orderId}`);
             setSellerOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
         } catch (error) {
             console.error('Error deleting order:', error);
@@ -101,7 +101,7 @@ function OrderList() {
 
     const updateOrderStatus = async (orderId, newStatus) => {
         try {
-            await axios.put(`http://localhost:3001/${sellerId}/orders/${orderId}`, { status: newStatus });
+            await axios.put(`https://maker-app-backend.vercel.app/${sellerId}/orders/${orderId}`, { status: newStatus });
             setSellerOrders(prevOrders => {
                 return prevOrders.map(order => {
                     if (order._id === orderId) {

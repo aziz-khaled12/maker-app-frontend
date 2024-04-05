@@ -28,8 +28,8 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/products/${productId}`);
-        const ratingResponse = await axios.get(`http://localhost:3001/${productId}/ratings`);
+        const response = await axios.get(`https://maker-app-backend.vercel.app/products/${productId}`);
+        const ratingResponse = await axios.get(`https://maker-app-backend.vercel.app/${productId}/ratings`);
         setAverageRating(ratingResponse.data.averageRating);
         setRatingNumber(ratingResponse.data.numberOfRatings);
         setProductDetails(response.data);
@@ -46,7 +46,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         if (productDetails.categories && productDetails.categories.length > 0) {
-          const response = await axios.get(`http://localhost:3001/products/categories/${productDetails.categories[0]}`);
+          const response = await axios.get(`https://maker-app-backend.vercel.app/products/categories/${productDetails.categories[0]}`);
           setProducts(response.data);
         }
       } catch (error) {
@@ -89,7 +89,7 @@ const ProductPage = () => {
         total: total,
         quantity,
       };
-      const response = await axios.post('http://localhost:3001/api/orders', orderData, {
+      const response = await axios.post('https://maker-app-backend.vercel.app/api/orders', orderData, {
         headers: {
           'Content-Type': 'application/json', // Change content type to JSON
           'Authorization': `Bearer ${token}` // Include the token in the request headers
@@ -100,7 +100,7 @@ const ProductPage = () => {
 
       if (response.status === 201) { // Check status instead of response.ok
         const order = response.data; // Access response data directly
-        await axios.put(`http://localhost:3001/sellers/${productDetails.sellerId}/orders`, {
+        await axios.put(`https://maker-app-backend.vercel.app/sellers/${productDetails.sellerId}/orders`, {
           orderId: order._id
         });
         console.log('Order placed successfully:', order);
@@ -117,7 +117,7 @@ const ProductPage = () => {
   useEffect(() => {
     if (productDetails.photos && productDetails.photos.length > 0) {
       setimageArray(productDetails.photos);
-      setImageUrl(`http://localhost:3001/photos/${productDetails.photos[0]}`)
+      setImageUrl(`https://maker-app-backend.vercel.app/photos/${productDetails.photos[0]}`)
     }
   }, [productDetails]);
 
@@ -129,7 +129,7 @@ const ProductPage = () => {
 
   const onRate = async (newRating) => {
     try {
-      const updatedRating = await axios.get(`http://localhost:3001/${productId}/ratings`);
+      const updatedRating = await axios.get(`https://maker-app-backend.vercel.app/${productId}/ratings`);
       setAverageRating(updatedRating.data.averageRating); 
     } catch (error) {
       console.error('Error fetching updated rating:', error);
@@ -154,9 +154,9 @@ const ProductPage = () => {
                   return (
                     <img
                       key={index}
-                      src={`http://localhost:3001/photos/${photo}`}
+                      src={`https://maker-app-backend.vercel.app/photos/${photo}`}
                       alt=""
-                      onClick={() => setImageUrl(`http://localhost:3001/photos/${photo}`)}
+                      onClick={() => setImageUrl(`https://maker-app-backend.vercel.app/photos/${photo}`)}
                     />
                   );
                 })}

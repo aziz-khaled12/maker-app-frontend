@@ -15,7 +15,7 @@ const MyCard2 = ({ product }) => {
   const handleLikeClick = async (productId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3001/user/${userId}/liked/${productId}`
+        `https://maker-app-backend.vercel.app/user/${userId}/liked/${productId}`
       );
       console.log(response.data);
       setLiked(!liked);
@@ -27,7 +27,7 @@ const MyCard2 = ({ product }) => {
     const checkLikedStatus = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/users/${userId}`
+          `https://maker-app-backend.vercel.app/users/${userId}`
         );
         const isLiked = response.data.liked.includes(product._id);
         if (isLiked) {
@@ -58,7 +58,7 @@ const MyCard2 = ({ product }) => {
 
   const imageUrl =
     product.photos && product.photos.length > 0
-      ? `http://localhost:3001/photos/${product.photos[0]}`
+      ? `https://maker-app-backend.vercel.app/photos/${product.photos[0]}`
       : "";
 
   return (

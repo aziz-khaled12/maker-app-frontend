@@ -10,7 +10,7 @@ const ProductRating = ({ productId, initialRating, onRate }) => {
   const handleRate = async (newRating) => {
     setIsSubmitting(true); // Indicate submission in progress
     try {
-      const response = await axios.post(`http://localhost:3001/${productId}/rates`, {
+      const response = await axios.post(`https://maker-app-backend.vercel.app/${productId}/rates`, {
         rating: newRating,
         productId: productId,
         userId: userId,

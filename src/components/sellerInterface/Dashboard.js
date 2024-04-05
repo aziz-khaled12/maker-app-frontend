@@ -23,7 +23,7 @@ function Dashboard() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const orderResponse = await axios.get(`http://localhost:3001/sellers/${sellerId}/orders`);
+                const orderResponse = await axios.get(`https://maker-app-backend.vercel.app/sellers/${sellerId}/orders`);
                 setSellerOrders(orderResponse.data.orders);
                 setTotalOrders(orderResponse.data.totalOrders);
                 setCompleted(orderResponse.data.numCompleted);
@@ -31,11 +31,11 @@ function Dashboard() {
 
                 // Fetch product and customer data concurrently
                 const products = await Promise.all(orderResponse.data.orders.map(async order => {
-                    const response = await axios.get(`http://localhost:3001/products/${order.productId}`);
+                    const response = await axios.get(`https://maker-app-backend.vercel.app/products/${order.productId}`);
                     return response.data;
                 }));
                 const customers = await Promise.all(orderResponse.data.orders.map(async order => {
-                    const response = await axios.get(`http://localhost:3001/users/${order.userId}`);
+                    const response = await axios.get(`https://maker-app-backend.vercel.app/users/${order.userId}`);
                     return response.data;
                 }));
                 setProductData(products);

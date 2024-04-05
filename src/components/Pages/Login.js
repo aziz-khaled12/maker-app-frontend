@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/login', { email, password });
+      const response = await axios.post('https://maker-app-backend.vercel.app/api/login', { email, password });
       console.log('User logged in:', response.data);
       const token = response.data.token;
       localStorage.setItem('token', token);

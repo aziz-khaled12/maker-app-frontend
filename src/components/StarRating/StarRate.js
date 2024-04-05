@@ -9,7 +9,7 @@ const StarRate = ({ sellerId, initialRating, onRate }) => {
     setHoverRating(newRating);
   
     try {
-      const response = await axios.post(`http://localhost:3001/${sellerId}/rate`, {
+      const response = await axios.post(`https://maker-app-backend.vercel.app/${sellerId}/rate`, {
         rating: newRating,
         sellerId: sellerId, 
         userId: userId,

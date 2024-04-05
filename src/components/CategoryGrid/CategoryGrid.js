@@ -11,7 +11,7 @@ const CategoryGrid = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/products/categories/${category}`);
+        const response = await axios.get(`https://maker-app-backend.vercel.app/products/categories/${category}`);
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);

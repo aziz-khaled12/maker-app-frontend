@@ -18,7 +18,7 @@ const Signup = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:3001/api/register', { username, email, password, role });
+      const response = await axios.post('https://maker-app-backend.vercel.app/api/register', { username, email, password, role });
       console.log('User saved:', response.data);
       navigate('/signup');
     } catch (error) {

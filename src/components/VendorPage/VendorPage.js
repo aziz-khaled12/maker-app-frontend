@@ -26,7 +26,7 @@ const VendorPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/sellers/${sellerId}/sellerProducts`);
+        const response = await axios.get(`https://maker-app-backend.vercel.app/sellers/${sellerId}/sellerProducts`);
         setOriginalResults(response.data);
         setDisplay(response.data);
       } catch (error) {
@@ -40,10 +40,10 @@ const VendorPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const sellerResponse = await axios.get(`http://localhost:3001/users/${sellerId}`);
+        const sellerResponse = await axios.get(`https://maker-app-backend.vercel.app/users/${sellerId}`);
         setSellerInfo(sellerResponse.data);
 
-        const ratingResponse = await axios.get(`http://localhost:3001/${sellerId}/rating`); // Assuming your ratings endpoint
+        const ratingResponse = await axios.get(`https://maker-app-backend.vercel.app/${sellerId}/rating`); // Assuming your ratings endpoint
         const initialRating = ratingResponse.data.averageRating; // Extract the average rating
         setRatingNumber(ratingResponse.data.numberOfRatings);
         setAverageRating(initialRating); // Add a state variable to store the initial rating
@@ -58,7 +58,7 @@ const VendorPage = () => {
 
   const onRate = async (newRating) => {
     try {
-      const updatedRating = await axios.get(`http://localhost:3001/${sellerId}/rating`);
+      const updatedRating = await axios.get(`https://maker-app-backend.vercel.app/${sellerId}/rating`);
       setAverageRating(updatedRating.data.averageRating); 
     } catch (error) {
       console.error('Error fetching updated rating:', error);

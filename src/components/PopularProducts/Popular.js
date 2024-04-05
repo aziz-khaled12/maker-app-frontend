@@ -11,7 +11,7 @@ const Popular = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:3001/products'); 
+          const response = await axios.get('https://maker-app-backend.vercel.app/products'); 
           setProducts(response.data);
         } catch (error) {
           console.error('Error fetching products:', error);

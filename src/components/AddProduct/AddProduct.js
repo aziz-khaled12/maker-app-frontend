@@ -132,7 +132,7 @@ const ProductAdd = () => {
     formData.append('sellerId', decodedToken.userId);
 
     try {
-      const response = await axios.post('http://localhost:3001/products', formData, {
+      const response = await axios.post('https://maker-app-backend.vercel.app/products', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`

@@ -71,7 +71,7 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/products/search/searched?keyword=${query}`);
+        const response = await axios.get(`https://maker-app-backend.vercel.app/products/search/searched?keyword=${query}`);
         setSearchResults(response.data);
         setDisplay(response.data);
         setOriginalResults(response.data);

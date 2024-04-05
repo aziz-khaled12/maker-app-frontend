@@ -9,7 +9,7 @@ const VendorGrid = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/sellers'); 
+        const response = await axios.get('https://maker-app-backend.vercel.app/sellers'); 
         setSellers(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
