@@ -149,16 +149,12 @@ const ProductAdd = () => {
     }
     try {
       console.log(formData);
-      const response = await axios.post(
-        "https://maker-app-backend.vercel.app/products",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post('https://maker-app-backend.vercel.app/products', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${token}`
+        },
+      });
 
       console.log("Product added successfully:", response.data);
     } catch (error) {
