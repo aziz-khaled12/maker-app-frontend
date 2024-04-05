@@ -1,0 +1,26 @@
+:root{
+    --text: #e8e5e4;
+    --background: #3e2213;
+    --primary: #d3ab92;
+    --secondary: #704731;
+    --accent: #cf7544;
+  
+  }
+
+.product-category-wrapper header{
+    color: var(--text);
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #704731;
+}
+
+.product-category-wrapper{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

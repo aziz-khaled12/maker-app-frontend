@@ -1,0 +1,20 @@
+.inside-filter-container {
+    width: 450px;
+    height: 100vh; /* Fixed height for the container */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+}
+
+.filter-content-wrapper {
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 30px;
+}

@@ -1,0 +1,9 @@
+.grid-container-2{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(130px, 1fr));
+    grid-template-rows: repeat(1, minmax(160px, 1fr));
+    row-gap: 30px;
+    place-items: center;
+}

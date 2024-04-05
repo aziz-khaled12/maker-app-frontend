@@ -1,0 +1,147 @@
+:root{
+    --text: #e8e5e4;
+    --background: #3e2213;
+    --primary: #d3ab92;
+    --secondary: #704731;
+    --accent: #cf7544;
+  
+  }
+
+.big-wrapper-login{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.big-container-login{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    background-color: transparent;
+}
+
+.log-in-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 550px;
+    width: 50%;
+}
+.log-in-container header{
+    font-size: 36px;
+    height: 100px;
+    color: var(--text);
+}
+.log-in-container .login-with-socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 20%;
+    width: 100%;
+    color: var(--text);
+}
+.log-in-container .login-with-socials .head{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    
+}
+.log-in-container .login-with-socials .head .line{
+    height: 2px;
+    width: 35%;
+    background-color: var(--primary);
+}
+
+.log-in-container .login-with-socials .btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.log-in-container .login-with-socials .btns .social-btn{
+    background-color: transparent;
+    color: var(--text);
+    border-radius: 46px;
+    border: 1px var(--secondary) solid;
+    width: 49%;
+    height: 54px;
+}
+
+.log-in-container .login-with-email{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 40%;
+    width: 100%;
+}
+.log-in-container .login-with-email .head{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.log-in-container .login-with-email .head .line{
+    height: 2px;
+    width: 35%;
+    background-color: var(--primary);
+
+}
+
+.log-in-container .login-with-email .input-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 120px;
+    width: 100%;
+
+}
+.log-in-container .login-with-email .input-container input{
+    background-color: transparent;
+    border: 1px var(--primary) solid;
+    border-radius: 4px;
+    width: 100%;
+    height: 48px;
+    color: var(--text);
+    font-size: 16px;
+    padding: 10px;
+}
+
+.submit-btn{
+    height: 54px;
+    width: 100%;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px white solid;
+    color: var(--text);
+    font-size: 15px;
+}
+.submit-btn:hover{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+.log-in-container .login-with-socials .btns .social-btn:hover{
+    background-color: var(--primary);
+    color: var(--secondary);
+    transition-duration: .2s;
+}
+
+button{
+    cursor: pointer;
+}

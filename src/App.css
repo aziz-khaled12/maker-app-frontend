@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+*{
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+}
+body {
+  overflow-y: overlay; /* Overlay scrollbar */
+}
+:root{
+  --text: #e8e5e4;
+  --background: #3e2213;
+  --primary: #d3ab92;
+  --secondary: #704731;
+  --accent: #cf7544;
+
+}
+.huge-wrapper{
+  overflow-x: overlay;
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  justify-content: space-between;
+  overflow: hidden;
+}
+.routes-container{
+  margin-top: 100px;
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

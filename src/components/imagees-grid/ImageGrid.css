@@ -1,0 +1,6 @@
+.images-grid{
+    display: grid;
+    height: 60px;
+    width: 200px;
+    background-color: white;
+}

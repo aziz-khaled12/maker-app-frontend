@@ -1,0 +1,152 @@
+.search-results-container {
+    width: 80%;
+    display: flex;
+}
+
+.search-results {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-area {
+    width: 80%;
+    height: 60px;
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.filter-button {
+    width: 130px;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    outline: none;
+    border: navajowhite solid 1px;
+    font-size: medium;
+}
+
+.sort-button {
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    font-size: medium;
+    list-style: none;
+    transition: .5s;
+}
+
+.sort-button li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sort-button li div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.diff {
+    width: 100%;
+}
+
+.sort-button li:hover {
+    transition: .2s;
+    background-color: darkgrey;
+}
+
+.sort-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    max-height: 0;
+    /* Set initial max-height to 0 */
+    transition: max-height 0.3s ease-out;
+    /* Add transition for smooth animation */
+    width: 100%;
+    /* Ensure the options take full width */
+}
+
+.sort-options li {
+    padding-left: 30px;
+}
+
+.sort-options.visible {
+    max-height: 200px;
+}
+
+.sort-button,
+.active-sort-button {
+    transition: 0.5s;
+}
+
+.sort-button.active {
+    width: 250px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    transition: .5s;
+
+}
+
+.filter-slide {
+    position: fixed;
+    visibility: hidden;
+    z-index: 3;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transition: .7s;
+}
+
+.filter-slide.visible{
+    visibility: visible;
+    left: 0;
+}
+
+.close-filter{
+    position: absolute;
+    left: 380px;
+    font-size: 20px;
+    font-weight: bolder;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    transition: background-color 0.1s ease;
+}
+
+.close-filter:hover{
+    background-color: rgba(255, 255, 255, 0.1294117647);
+}

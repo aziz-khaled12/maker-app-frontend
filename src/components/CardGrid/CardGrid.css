@@ -1,0 +1,24 @@
+.grid-container-1 {
+    position: relative;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Automatically adjust columns based on container width */
+    grid-template-rows: repeat(auto-fill, minmax(544px, 1fr)); /* Adjust row height as needed */
+    row-gap: 30px;
+    background-color: transparent;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .grid-container-1 {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Adjust column width for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 1005px) {
+    .grid-container-1 {
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /* Adjust column width for smaller screens */
+    }
+  }
+  

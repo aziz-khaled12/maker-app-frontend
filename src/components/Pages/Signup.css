@@ -1,0 +1,187 @@
+:root{
+    --text: #e8e5e4;
+    --background: #3e2213;
+    --primary: #d3ab92;
+    --secondary: #704731;
+    --accent: #cf7544;
+  
+  }
+
+.big-wrapper-signup{
+    display: flex;
+    height: 180vh;
+    width: 100%;
+    background-color: transparent;
+    align-items: flex-start;
+    
+}
+
+.big-container-signup{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.sign-up-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 900px;
+    width: 60%;
+    border: 2px var(--text) solid;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: inset black 5px;
+}
+.sign-up-container header{
+    color: var(--text);
+    font-size: 36px;
+}
+.sign-up-container .signup-with-socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 15%;
+    width: 100%;
+    color: var(--text);
+}
+.sign-up-container .signup-with-socials .head{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    
+}
+.sign-up-container .signup-with-socials .head .line{
+    height: 2px;
+    width: 35%;
+    background-color: var(--primary);
+}
+
+.sign-up-container .signup-with-socials .btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sign-up-container .signup-with-socials .btns .social-btn{
+    background-color: transparent;
+    color: white;
+    border-radius: 46px;
+    border: 1px var(--primary) solid;
+    width: 49%;
+    height: 54px;
+}
+
+.sign-up-container .signup-with-email{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+}
+.sign-up-container .signup-with-email .head{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.sign-up-container .signup-with-email .head .line{
+    height: 2px;
+    width: 35%;
+    background-color: var(--primary);
+
+}
+
+.sign-up-container .signup-with-email .signup-input-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+
+}
+.sign-up-container .signup-with-email .signup-input-container input{
+    background-color: transparent;
+    border: 1px var(--primary) solid;
+    border-radius: 4px;
+    width: 100%;
+    height: 48px;
+    color: var(--text);
+    font-size: 16px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+.submit-btn{
+    height: 54px;
+    width: 100%;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px var(--primary) solid;
+    color: var(--text);
+    font-size: 15px;
+}
+.submit-btn:hover{
+    background-color: var(--text);
+    color: var(--secondary);
+    transition-duration: .2s;
+}
+.sign-up-container .signup-with-socials .btns .social-btn:hover{
+    background-color: var(--text);
+    color: var(--secondary);
+}
+
+button{
+    cursor: pointer;
+}
+
+.Role{
+    display: flex;
+    background-color: transparent;
+    border: 1px #343444 solid;
+    border-radius: 4px;
+    width: 100%;
+    height: 48px;
+    color: white;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+.Role select{
+    width: 100%;
+    font-size: 16px;
+    height:100% ;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.Role select option{
+    height: 60px;
+    font-size: 16px;
+    background-color: #14141F;
+    color: white;
+    border: none;
+    outline: none;
+}
+.selected{
+    display: none;
+}

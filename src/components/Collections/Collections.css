@@ -1,0 +1,121 @@
+.collections-wrapper{
+    height: 395px;
+    width: 450px;
+    margin: 100px;
+}
+.collections-container{
+    height: 100%;
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.top-container{
+    width: 90%;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+.collections-grid-container {
+    display: grid;
+    grid-template-columns: 192px 105px 105px;
+    grid-template-rows: 100px 172px;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "product-1 product-3 product-4"
+        "product-1 product-2 product-2";
+}
+
+.product-1 {
+    grid-area: product-1;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.product-2 {
+    grid-area: product-2;
+    background-color: wheat;
+    border-radius: 10px;
+
+}
+
+.product-3 {
+    grid-area: product-3;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.product-4 {
+    grid-area: product-4;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.top-container .vendor-top .vendor-container {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.top-container .vendor-top .vendor-container .vendor-image-container {
+    display: flex;
+    height: 64px;
+    width: 64px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    background-image: url(/src/assets/BlackBlack-Hoodie.jpg);
+    background-size: cover;
+}
+
+.check-circle {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 60%;
+}
+.top-container .vendor-top .vendor-container h3{
+    text-overflow: over;
+    white-space: nowrap;
+    overflow: visible;
+    text-align: center;
+    font-size: 16px;
+    opacity: 1;
+}
+
+.text-vendor{
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: space-evenly;
+    margin-left: 20px;
+
+}
+.text-vendor h4{
+    margin: 0;
+    opacity: 0.75;
+}
+.text-vendor h3{
+    margin: 0;
+}
+.top-container .cont-like{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+}

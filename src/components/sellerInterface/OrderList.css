@@ -1,0 +1,32 @@
+.huge-container{
+    width: 80%;
+}
+
+.orders-container{
+    width: 100%;
+}
+
+.table-container{
+    width: 100%;
+}
+.order-top-container{
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 20px;
+}
+.state-select{
+    background-color: #f2f2f2;
+    color: black;
+    border: none;
+}
+.state-select option{
+    font-size: 14px;
+}
+
+.state-select:hover{
+    background-color: #d5d5d5;
+    transition-duration: .2s;
+}
+

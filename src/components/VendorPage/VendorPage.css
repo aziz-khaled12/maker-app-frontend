@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+*{
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.huge-vendor-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.top-container-1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+}
+
+.huge-vendor-container .top-container-1 .cover-photo {
+    background-color: white;
+    width: 100%;
+    height: 60vh;
+    background-image: url('../../assets/BlackBlack-Hoodie.jpg');
+    background-size: cover;
+}
+
+.huge-vendor-container .top-container-1 .ven-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.huge-vendor-container .top-container-1 .ven-info .photo-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 10px;
+    z-index: 2;
+    color: black;
+    margin-bottom: 20px;
+    height: 30vh;
+    width: 700px;
+}
+
+.huge-vendor-container .top-container-1 .ven-info .photo-info .info{
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.huge-vendor-container .top-container-1 .ven-info .photo-info .info .completed{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.huge-vendor-container .top-container-1 .ven-info .photo-info .info .name{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.huge-vendor-container .top-container-1 .ven-info .photo-info .follow-btn{
+    width: 150px;
+    height: 40px;
+    border: navajowhite solid 1px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.huge-vendor-container .top-container-1 .ven-info .photo-info .follow-btn:hover{
+    background-color: navajowhite;
+    color: black;
+    transition-duration: .2s;
+}
+
+.huge-vendor-container .top-container-1 .photo-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.bottom-container {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.seller-products{
+    width: 80%;
+}
+
+.top-bot{
+    color: white;
+    width: 100%;
+    height: 25vh;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+}
