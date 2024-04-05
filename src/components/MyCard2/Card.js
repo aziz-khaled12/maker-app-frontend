@@ -7,13 +7,7 @@ import styled from "styled-components";
 import axios from "axios";
 const MyCard2 = ({ product }) => {
   const navigate = useNavigate();
-  const [decodedToken, setDecodedToken] = useState();
-  const [userId, setUserId] = useState();
-  const token = localStorage.getItem("token");
-  if (token) {
-    setDecodedToken(JSON.parse(atob(token.split(".")[1])));
-    setUserId(decodedToken.userId);
-  }
+  const userId = localStorage.getItem("userId");
   
   
   const [liked, setLiked] = useState(false);

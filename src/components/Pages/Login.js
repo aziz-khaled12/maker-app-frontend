@@ -20,9 +20,9 @@ const Login = () => {
       console.log("User logged in:", response.data);
       const token = response.data.token;
       localStorage.setItem("token", token);
-
       const decodedToken = JSON.parse(atob(token.split(".")[1]));
-      console.log("Decoded Token:", decodedToken);
+      localStorage.setItem("userId", decodedToken.userId);
+
       navigate("/", { replace: true }); // Navigate to home, replace current history
     } catch (error) {
       console.error("Error logging in:", error);
