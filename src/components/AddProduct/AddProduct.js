@@ -132,6 +132,7 @@ const ProductAdd = () => {
     formData.append('sellerId', decodedToken.userId);
 
     try {
+      console.log(formData);
       const response = await axios.post('https://maker-app-backend.vercel.app/products', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
