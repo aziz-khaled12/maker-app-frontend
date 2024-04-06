@@ -372,10 +372,10 @@ const ProductAdd = () => {
                       {category.name}
                     </li>
                     {category.selected &&
-                      subCategoriesToShow.map((subCat) => (
+                      subCategories[category.name].map((subCat) => (
                         <li
                           key={subCat}
-                          className={category.selected ? "selected-cat" : ""}
+                          className={subCat.selected ? "selected-cat" : ""}
                           onClick={() => handleSubCategoryClick(subCat)}
                         >
                           {subCat}
