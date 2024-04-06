@@ -2,14 +2,15 @@ import './CategorieList.css';
 import DropList from '../DropList/DropList';
 
 const CategorieList = () => {
-  const categoryList = ['T-shirts', 'Pants', 'Jeans', 'Sweat-Shirts', 'Sweats', 'Shorts'];
+  const categoryList = ['Men', 'Women', 'Gifts', 'Decore', 'Accessories', 'Mats'];
   const subCategories = {
-    'T-shirts': ['triko', 'alskfdj', 'alkjsf', 'alskfj'],
-    'Pants': ['tro', 'alskfdj', 'alkjsf', 'alskfj'],
+    'Men': ['Shirts', 'Pants', 'Winter Clothes', 'Pijamas', 'Sports'],
+    'Women': ['Shirts', 'Pants', 'Hijab', 'Pijamas', 'Sports'],
     'Jeans': ['triko', 'alskj', 'alkjsf', 'alskfj'],
-    'Sweat-Shirts': ['triko', 'alskfdj', 'alf', 'alskfj'],
-    'Sweats': ['triko', 'alskfdj', 'alkjsf', 'alj'],
-    'Shorts': ['triko', 'alskfdj', 'alsf', 'alskfj'],
+    'Gifts': ['For Him', 'For Her', 'For kids', 'Official'],
+    'Decore': ['House', 'Office', 'Other'],
+    'Accessories': ['Phone & PC', 'Keys', 'Cars', 'Other'],
+    'Mats': ['Mats, Curtains', 'Carpets'],
   };
 
   return (
