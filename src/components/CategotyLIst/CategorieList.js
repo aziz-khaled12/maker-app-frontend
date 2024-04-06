@@ -10,7 +10,7 @@ const CategorieList = () => {
     'Gifts': ['For Him', 'For Her', 'For kids', 'Official'],
     'Decore': ['House', 'Office', 'Other'],
     'Accessories': ['Phone & PC', 'Keys', 'Cars', 'Other'],
-    'Mats': ['Mats, Curtains', 'Carpets'],
+    'Mats': ['Mats', 'Curtains', 'Carpets'],
   };
 
   return (
