@@ -124,49 +124,33 @@ const ProductAdd = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("sellerId", sellerId);
-    formData.append("price", productData.price);
-    formData.append("name", productData.name);
-    formData.append("description", productData.description);
-    productData.selectedColors.forEach((color) => {
-      formData.append("colors", color);
-    });
-    const materialArray = productData.materials
-      .split(/[,\n;]/)
-      .map((material) => material.trim())
-      .filter((material) => material !== "");
-    materialArray.forEach((material) => {
-      formData.append("materials", material);
-    });
-    productData.selectedSizes.forEach((sizes) => {
-      formData.append("sizes", sizes);
-    });
-    productData.categories.forEach((categories) => {
-      formData.append("categories", categories);
-    });
-    for (let i = 0; i < productData.photos.length; i++) {
-      formData.append("photos", productData.photos[i]);
-    }
     try {
-      for (const [key, value] of formData.entries()) {
-        console.log(key, value);
-      }
-      const response = await axios.post(
-        "https://maker-app-backend.vercel.app/users/niggas/things/products",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+        const response = await axios.post(
+            "https://maker-app-backend.vercel.app/users/niggas/things/products",
+            {
+                sellerId: sellerId,
+                price: productData.price,
+                name: productData.name,
+                description: productData.description,
+                selectedColors: productData.selectedColors,
+                materials: productData.materials.split(/[,\n;]/).map(material => material.trim()).filter(material => material !== ""),
+                selectedSizes: productData.selectedSizes,
+                categories: productData.categories,
+                photos: productData.photos
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        );
 
-      console.log("Product added successfully:", response.data);
+        console.log("Product added successfully:", response.data);
     } catch (error) {
-      console.error("Error adding product:", error);
+        console.error("Error adding product:", error);
     }
-  };
+};
 
   return (
     <>
