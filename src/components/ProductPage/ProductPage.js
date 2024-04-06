@@ -117,7 +117,7 @@ const ProductPage = () => {
   useEffect(() => {
     if (productDetails.photos && productDetails.photos.length > 0) {
       setimageArray(productDetails.photos);
-      setImageUrl(`https://maker-app-backend.vercel.app/photos/${productDetails.photos[0]}`)
+      setImageUrl(`${productDetails.photos[0]}`)
     }
   }, [productDetails]);
 
@@ -154,9 +154,9 @@ const ProductPage = () => {
                   return (
                     <img
                       key={index}
-                      src={`https://maker-app-backend.vercel.app/photos/${photo}`}
+                      src={`${photo}`}
                       alt=""
-                      onClick={() => setImageUrl(`https://maker-app-backend.vercel.app/photos/${photo}`)}
+                      onClick={() => setImageUrl(`${photo}`)}
                     />
                   );
                 })}
