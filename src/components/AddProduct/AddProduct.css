@@ -286,8 +286,9 @@
 
  .drop-cat{
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   height: fit-content;
   flex-direction: column;
+  width: 16.6%;
  }
