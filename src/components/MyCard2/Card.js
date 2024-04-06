@@ -58,7 +58,7 @@ const MyCard2 = ({ product }) => {
 
   const imageUrl =
     product.photos && product.photos.length > 0
-      ? `https://maker-app-backend.vercel.app/photos/${product.photos[0]}`
+      ? `${product.photos[0]}`
       : "";
 
   return (
