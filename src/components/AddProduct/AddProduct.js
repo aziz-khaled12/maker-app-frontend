@@ -102,16 +102,20 @@ const ProductAdd = () => {
       }
       return category;
     });
-
+  
     setCategoryList(updatedCategories);
-
+  
     // Toggle visibility of subcategories
     if (clickedCategory.selected) {
-      setSubCategoriesToShow(subCategories[clickedCategory.name]);
+      setSubCategoriesToShow(initialSubCategories[clickedCategory.name]);
     } else {
       setSubCategoriesToShow([]);
     }
+  
+    // Update product categories
+    updateProductCategories(updatedCategories);
   };
+  
 
   const handleSubCategoryClick = (subCategory) => {
     const updatedSubCategories = subCategoriesToShow.map((subCat) => {
