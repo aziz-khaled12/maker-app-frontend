@@ -413,7 +413,7 @@ const ProductAdd = () => {
                         {category.name}
                       </li>
                       {category.selected &&
-                        subCategories[category.name].map((subCat) => (
+                        initialSubCategories[category.name].map((subCat) => (
                           <li
                             key={subCat}
                             className={subCat.selected ? "selected-cat" : ""}
