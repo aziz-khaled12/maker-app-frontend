@@ -357,13 +357,16 @@ const ProductAdd = () => {
               >
                 choose files
               </button>
+              
             </label>
             <br />
+            Categories:
             <label className="category-label">
-              Categories:
+              
               <ul>
                 {categoryList.map((category) => (
                   <>
+                  <div className="drop-cat">
                     <li
                       key={category.name}
                       className={category.selected ? "selected-cat" : ""}
@@ -381,6 +384,7 @@ const ProductAdd = () => {
                           {subCat}
                         </li>
                       ))}
+                      </div>
                   </>
                 ))}
               </ul>

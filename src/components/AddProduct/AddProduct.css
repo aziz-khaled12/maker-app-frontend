@@ -283,3 +283,11 @@
   border: 1px solid black;
   color: black;
  }
+
+ .drop-cat{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: fit-content;
+  flex-direction: column;
+ }
