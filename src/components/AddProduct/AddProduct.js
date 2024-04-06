@@ -126,15 +126,15 @@ const ProductAdd = () => {
 
     try {
         const response = await axios.post(
-            "https://maker-app-backend.vercel.app/users/niggas/things/products",
+            "https://maker-app-backend.vercel.app/products",
             {
                 sellerId: sellerId,
                 price: productData.price,
                 name: productData.name,
                 description: productData.description,
-                selectedColors: productData.selectedColors,
+                colors: productData.selectedColors,
                 materials: productData.materials.split(/[,\n;]/).map(material => material.trim()).filter(material => material !== ""),
-                selectedSizes: productData.selectedSizes,
+                sizes: productData.selectedSizes,
                 categories: productData.categories,
                 photos: productData.photos
             },
