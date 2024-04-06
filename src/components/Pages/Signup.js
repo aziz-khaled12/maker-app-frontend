@@ -20,7 +20,7 @@ const Signup = () => {
     try {
       const response = await axios.post('https://maker-app-backend.vercel.app/api/register', { username, email, password, role });
       console.log('User saved:', response.data);
-      navigate('/signup');
+      navigate('/login');
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setError('Username is already taken. Please choose another.');
