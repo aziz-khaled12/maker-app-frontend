@@ -27,6 +27,7 @@ const ProductAdd = () => {
   const [productData, setProductData] = useState({
     sellerId: "",
     name: "",
+    price: "",
     description: "",
     selectedColors: [],
     materials: [],
@@ -123,34 +124,37 @@ const ProductAdd = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-        const response = await axios.post(
-            "https://maker-app-backend.vercel.app/products",
-            {
-                sellerId: sellerId,
-                price: productData.price,
-                name: productData.name,
-                description: productData.description,
-                colors: productData.selectedColors,
-                materials: productData.materials.split(/[,\n;]/).map(material => material.trim()).filter(material => material !== ""),
-                sizes: productData.selectedSizes,
-                categories: productData.categories,
-                photos: productData.photos
-            },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    'Authorization': `Bearer ${token}`
-                }
-            }
-        );
-
-        console.log("Product added successfully:", response.data);
+      const formData = new FormData();
+      formData.append("sellerId", sellerId);
+      formData.append("price", productData.price);
+      formData.append("name", productData.name);
+      formData.append("description", productData.description);
+      formData.append("colors", JSON.stringify(productData.selectedColors));
+      formData.append("materials", JSON.stringify(productData.materials.split(/[,\n;]/).map(material => material.trim()).filter(material => material !== "")));
+      formData.append("sizes", JSON.stringify(productData.selectedSizes));
+      formData.append("categories", JSON.stringify(productData.categories));
+      for (let i = 0; i < productData.photos.length; i++) {
+        formData.append("photos", productData.photos[i]);
+      }
+  
+      const response = await axios.post(
+        "https://maker-app-backend.vercel.app/products",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      console.log("Product added successfully:", response.data);
     } catch (error) {
-        console.error("Error adding product:", error);
+      console.error("Error adding product:", error);
     }
-};
+  };
 
   return (
     <>
