@@ -20,14 +20,49 @@ const initialCategoryList = [
   "Mats",
 ].map((name) => ({ name, selected: false }));
 
-const subCategories = {
-  Men: ["Shirts", "Pants", "Winter Clothes", "Pijamas", "Sports"],
-  Women: ["Shirts", "Pants", "Hijab", "Pijamas", "Sports"],
-  Jeans: ["triko", "alskj", "alkjsf", "alskfj"],
-  Gifts: ["For Him", "For Her", "For kids", "Official"],
-  Decore: ["House", "Office", "Other"],
-  Accessories: ["Phone & PC", "Keys", "Cars", "Other"],
-  Mats: ["Mats", "Curtains", "Carpets"],
+const initialSubCategories = {
+  Men: [
+    { name: "Shirts", selected: false },
+    { name: "Pants", selected: false },
+    { name: "Winter Clothes", selected: false },
+    { name: "Pijamas", selected: false },
+    { name: "Sports", selected: false },
+  ],
+  Women: [
+    { name: "Shirts", selected: false },
+    { name: "Pants", selected: false },
+    { name: "Hijab", selected: false },
+    { name: "Pijamas", selected: false },
+    { name: "Sports", selected: false },
+  ],
+  Jeans: [
+    { name: "triko", selected: false },
+    { name: "alskj", selected: false },
+    { name: "alkjsf", selected: false },
+    { name: "alskfj", selected: false },
+  ],
+  Gifts: [
+    { name: "For Him", selected: false },
+    { name: "For Her", selected: false },
+    { name: "For kids", selected: false },
+    { name: "Official", selected: false },
+  ],
+  Decore: [
+    { name: "House", selected: false },
+    { name: "Office", selected: false },
+    { name: "Other", selected: false },
+  ],
+  Accessories: [
+    { name: "Phone & PC", selected: false },
+    { name: "Keys", selected: false },
+    { name: "Cars", selected: false },
+    { name: "Other", selected: false },
+  ],
+  Mats: [
+    { name: "Mats", selected: false },
+    { name: "Curtains", selected: false },
+    { name: "Carpets", selected: false },
+  ],
 };
 
 const ProductAdd = () => {
@@ -90,6 +125,7 @@ const ProductAdd = () => {
     });
 
     setSubCategoriesToShow(updatedSubCategories);
+    updateProductCategories(updatedSubCategories);
   };
 
   const updateProductCategories = (updatedCategories) => {
@@ -357,34 +393,32 @@ const ProductAdd = () => {
               >
                 choose files
               </button>
-              
             </label>
             <br />
             Categories:
             <label className="category-label">
-              
               <ul>
                 {categoryList.map((category) => (
                   <>
-                  <div className="drop-cat">
-                    <li
-                      key={category.name}
-                      className={category.selected ? "selected-cat" : ""}
-                      onClick={() => handleCategoryClick(category)}
-                    >
-                      {category.name}
-                    </li>
-                    {category.selected &&
-                      subCategories[category.name].map((subCat) => (
-                        <li
-                          key={subCat}
-                          className={subCat.selected ? "selected-cat" : ""}
-                          onClick={() => handleSubCategoryClick(subCat)}
-                        >
-                          {subCat}
-                        </li>
-                      ))}
-                      </div>
+                    <div className="drop-cat">
+                      <li
+                        key={category.name}
+                        className={category.selected ? "selected-cat" : ""}
+                        onClick={() => handleCategoryClick(category)}
+                      >
+                        {category.name}
+                      </li>
+                      {category.selected &&
+                        subCategories[category.name].map((subCat) => (
+                          <li
+                            key={subCat}
+                            className={subCat.selected ? "selected-cat" : ""}
+                            onClick={() => handleSubCategoryClick(subCat)}
+                          >
+                            {subCat}
+                          </li>
+                        ))}
+                    </div>
                   </>
                 ))}
               </ul>
