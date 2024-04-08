@@ -49,12 +49,28 @@
  }
 
  .big-add-container form label {
-   width: 90%;
+   width: 100%;
    position: relative;
+   color: white;
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
  }
 
- .big-add-container form label input {
-   width: 100%;
+ .big-add-container form .add-datails{
+  width: 100%;
+  min-height: 150vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border: 1px navajowhite solid;
+  padding: 20px;
+  margin: 20px;
+ }
+
+ .big-add-container form .add-datails .theInput{
+   width: 65%;
    height: 60px;
    padding: 10px;
    border: 1px solid navajowhite;
@@ -63,6 +79,26 @@
    outline: none;
    color: white;
    font-size: 1em;
+
+ }
+
+ .big-add-container form .add-datails .text-inside-label{
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+  width: 30%;
+ }
+
+ .big-add-container form .add-datails .text-inside-label span{
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+  width: 100%;
+ }
+
+ .big-add-container form .add-datails .text-inside-label span:first-child{
+  font-size: 20px;
+  font-weight: bold;
  }
 
  .big-add-container form .available-sizes {
@@ -86,8 +122,8 @@
  }
 
  .big-add-container form label textarea {
-   width: 100%;
-   height: 80px;
+   width: 65%;
+   height: 200px;
    outline: none;
    padding: 10px;
    font-size: 1em;
@@ -122,24 +158,23 @@
  }
 
  .size-label {
-   height: 300px;
+   min-height: 90px;
    width: 100%;
    outline: none;
-   border: 1px solid navajowhite;
    background: transparent;
    color: white;
-   padding: 10px;
+   gap: 20px;
    display: flex;
    flex-direction: column;
    justify-content: center;
-   align-items: center;
+   align-items: flex-start;
  }
 
  .size-label .dropdown{
+  min-height: 60px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
  }
 
  .size-label .dropdown .dropdown-toggle {
@@ -191,7 +226,7 @@
   flex-direction: column;
  }
 
- .photos-label{
+ .big-add-container form .photos-label{
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -225,14 +260,12 @@
    object-fit: cover;
  }
  .big-add-container form .category-label{
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   height: fit-content;
-  border: 1px solid navajowhite;
-  padding: 10px;
  }
  .big-add-container form .category-label ul{
   width: 100%;
@@ -241,6 +274,7 @@
   align-items: flex-start;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 0;
  }
  .big-add-container form .category-label ul li{
   width: 90%;
@@ -291,4 +325,41 @@
   height: fit-content;
   flex-direction: column;
   width: 16.6%;
+ }
+
+
+ .big-add-container form .color-label{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+ }
+
+.select-div{
+  width: 65%;
+ }
+ 
+ .checkbox-size{
+  width: 16px;
+  height: 16px;
+ }
+
+ .checkbox-div{
+  width: 30%;
+  font-size: 20px;
+  font-weight: bold;
+ }
+
+ .input-disabled{
+  width: 65%;
+  height: 60px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  font-size: 1em;
+  border: #ccc 1px solid;
+  opacity: .3;
  }

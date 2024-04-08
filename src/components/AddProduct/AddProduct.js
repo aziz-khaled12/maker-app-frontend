@@ -1,16 +1,99 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProduct.css";
+import Select from "react-dropdown-select";
 
 const predefinedColors = [
-  "Red",
-  "Blue",
-  "Green",
-  "Yellow",
-  "Purple",
-  "Orange",
-  "White",
-];
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "indigo",
+  "violet",
+  "purple",
+  "black",
+  "white",
+  "gray",
+  "silver",
+  "maroon",
+  "navy",
+  "teal",
+  "olive",
+  "lime",
+  "fuchsia",
+  "aqua",
+  "magenta",
+  "crimson",
+  "sienna",
+  "coral",
+  "turquoise",
+  "darkred",
+  "darkorange",
+  "darkyellow",
+  "darkgreen",
+  "darkblue",
+  "darkindigo",
+  "darkviolet",
+  "darkpurple",
+  "darkgray",
+  "lightslategray",
+  "lightsteelblue",
+  "lavender",
+  "pink",
+  "lightpink",
+  "hotpink",
+  "lightcoral",
+  "lightsalmon",
+  "lightgoldenrodyellow",
+  "palegoldenrod",
+  "lightyellow",
+  "beige",
+  "whitesmoke",
+  "mintcream",
+  "ivory",
+  "seashell",
+  "floralwhite",
+  "oldlace",
+  "linen",
+  "antiquewhite",
+  "papayawhip",
+  "blanchedalmond",
+  "mistyrose",
+  "gainsboro",
+  "lightcyan",
+  "lightblue",
+  "skyblue",
+  "lightskyblue",
+  "steelblue",
+  "aliceblue",
+  "powderblue",
+  "azure",
+  "darkturquoise",
+  "cadetblue",
+  "cornflowerblue",
+  "royalblue",
+  "mediumblue",
+  "midnightblue",
+  "navyblue",
+  "darkmagenta",
+  "darkorchid",
+  "brown",
+  "firebrick",
+  "indianred",
+  "salmon",
+  "darksalmon",
+  "tomato",
+  "orangered",
+  "gold",
+  "chartreuse",
+  "palegreen",
+  "greenyellow",
+  "lawngreen",
+  "limegreen",
+  "forestgreen",
+].map((name, index) => ({ name, id: index }));
+
 const initialCategoryList = [
   "Men",
   "Women",
@@ -65,6 +148,16 @@ const initialSubCategories = {
   ],
 };
 
+const predefinedLetters = ["XS", "S", "M", "L", "XL", "XXL"].map(
+  (name, index) => ({
+    name,
+    id: index,
+  })
+);
+const predefinedNumbers = ["28", "30", "32", "34", "36", "38", "40", "42"].map(
+  (name, index) => ({ name, id: index })
+);
+
 const ProductAdd = () => {
   const [productData, setProductData] = useState({
     sellerId: "",
@@ -79,9 +172,15 @@ const ProductAdd = () => {
   });
 
   const [previewImages, setPreviewImages] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [letters, setLetters] = useState(false);
+  const [numbers, setNumbers] = useState(false);
+  const [custom, setCustom] = useState(false);
+  const [selectedLetters, setSellectedLetters] = useState([]);
+  const [selectedNumbers, setSellectedNumbers] = useState([]);
+  const [selctedCutom, setSelectedCustom] = useState();
   const [categoryList, setCategoryList] = useState(initialCategoryList);
-  const [subCategoriesToShow, setSubCategoriesToShow] = useState([]);
+  const [subCategoriesToShow, setSubCategoriesToShow] = useState(initialSubCategories);
+    
 
   const handleButtonClick = () => {
     document.getElementById("file-upload").click();
@@ -90,53 +189,6 @@ const ProductAdd = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProductData({ ...productData, [name]: value });
-  };
-
-  const handleCategoryClick = (clickedCategory) => {
-    const updatedCategories = categoryList.map((category) => {
-      if (category.name === clickedCategory.name) {
-        return {
-          ...category,
-          selected: !category.selected,
-        };
-      }
-      return category;
-    });
-  
-    setCategoryList(updatedCategories);
-  
-    // Toggle visibility of subcategories
-    if (clickedCategory.selected) {
-      setSubCategoriesToShow(initialSubCategories[clickedCategory.name]);
-    } else {
-      setSubCategoriesToShow([]);
-    }
-  
-    // Update product categories
-    updateProductCategories(updatedCategories);
-  };
-  
-
-  const handleSubCategoryClick = (subCategory) => {
-    const updatedSubCategories = subCategoriesToShow.map((subCat) => {
-      if (subCat === subCategory) {
-        return {
-          ...subCat,
-          selected: !subCat.selected,
-        };
-      }
-      return subCat;
-    });
-
-    setSubCategoriesToShow(updatedSubCategories);
-    updateProductCategories(updatedSubCategories);
-  };
-
-  const updateProductCategories = (updatedCategories) => {
-    const selectedCategories = updatedCategories
-      .filter((category) => category.selected)
-      .map((category) => category.name);
-    setProductData({ ...productData, categories: selectedCategories });
   };
 
   const handleFileChange = (e) => {
@@ -158,37 +210,49 @@ const ProductAdd = () => {
     setProductData({ ...productData, photos: selectedPhotos });
   };
 
-  const handleColorChange = (color) => {
-    const selectedColors = [...productData.selectedColors];
-
-    if (selectedColors.includes(color)) {
-      const index = selectedColors.indexOf(color);
-      selectedColors.splice(index, 1);
-    } else {
-      selectedColors.push(color);
-    }
-
-    setProductData({ ...productData, selectedColors });
-  };
-
-  const handleSizeTypeChange = (type) => {
-    setProductData({
-      ...productData,
-      selectedSizeType: type,
-      selectedSizes: [],
+  const handleColorChange = (colors) => {
+    console.log("colors: ", colors);
+    const selectedColors = [];
+    colors.map((color) => {
+      if (!selectedColors.includes(color.name)) {
+        selectedColors.push(color.name);
+        setProductData({ ...productData, selectedColors });
+      }
     });
-    setIsOpen(false);
   };
 
-  const handleSizeSelection = (size) => {
-    const selectedSizes = [...productData.selectedSizes];
-    if (selectedSizes.includes(size)) {
-      selectedSizes.splice(selectedSizes.indexOf(size), 1);
-    } else {
-      selectedSizes.push(size);
+
+  const handleImageDelete = () => {};
+
+  const handleSizeSelection = (sizes, type) => {
+    const selectedLet = [];
+    const selectedNum = [];
+    if (type === "letters") {
+      if (sizes.length === 0) {
+        setSellectedLetters([]);
+      } else {
+        sizes.map((size) => {
+          selectedLet.push(size.name);
+          setSellectedLetters(selectedLet);
+        });
+      }
+    } else if (type === "numbers") {
+      if (sizes.length === 0) {
+        setSellectedNumbers([]);
+      } else {
+        sizes.map((size) => {
+          selectedNum.push(size.name);
+          setSellectedNumbers(selectedNum);
+        });
+      }
     }
-    setProductData({ ...productData, selectedSizes });
   };
+
+  useEffect(() => {
+    const selectedSizes = selectedLetters.concat(selectedNumbers);
+    console.log("selected", selectedSizes);
+    setProductData({ ...productData, selectedSizes });
+  }, [selectedLetters, selectedNumbers]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -242,191 +306,424 @@ const ProductAdd = () => {
     }
   };
 
+  const handleCategoryClick = (clickedCategory) => {
+    const updatedCategories = categoryList.map((category) => {
+      if (category.name === clickedCategory.name) {
+        return {
+          ...category,
+          selected: !category.selected,
+        };
+      }
+
+      return category;
+    });
+
+    setCategoryList(updatedCategories);
+
+    const updatedSubCategories = subCategoriesToShow[clickedCategory.name].map(
+      (subCat) => {
+        if (clickedCategory.selected === true && subCat.selected === true) {
+          return {
+            ...subCat,
+            selected: false,
+          };
+        }
+        return subCat;
+      }
+    );
+
+    console.log("updated sub:", updatedSubCategories);
+
+    setSubCategoriesToShow({
+      ...subCategoriesToShow,
+      [clickedCategory.name]: updatedSubCategories,
+    });
+  };
+
+  const handleSubCategoryClick = (subCategory, category) => {
+    const updatedSubCategories = subCategoriesToShow[category.name].map(
+      (subCat) => {
+        if (subCat.name === subCategory.name) {
+          return {
+            ...subCat,
+            selected: !subCat.selected,
+          };
+        }
+        return subCat;
+      }
+    );
+
+    setSubCategoriesToShow({
+      ...subCategoriesToShow,
+      [category.name]: updatedSubCategories,
+    });
+  };
+
+  const updateProductCategories = () => {
+    const selectedCategories = [];
+
+    // Iterate over categoryList to include selected categories
+    categoryList.forEach((category) => {
+      if (category.selected) {
+        selectedCategories.push(category.name);
+      }
+
+      // Check if subcategories of this category are selected
+      if (subCategoriesToShow[category.name]) {
+        subCategoriesToShow[category.name].forEach((subCategory) => {
+          if (subCategory.selected) {
+            selectedCategories.push(subCategory.name);
+          }
+        });
+      }
+    });
+
+    setProductData((prevData) => ({
+      ...prevData,
+      categories: selectedCategories,
+    }));
+  };
+
+  useEffect(() => {
+    updateProductCategories();
+  }, [subCategoriesToShow, categoryList]);
+
+  console.log("last", productData.selectedSizes);
+
   return (
     <>
       <div className="huge-add-container">
         <div className="big-add-container">
           <h2>Add Product</h2>
           <form onSubmit={handleFormSubmit}>
-            <label>
-              <input
-                type="text"
-                name="price"
-                value={productData.price}
-                onChange={handleInputChange}
-                placeholder="Price"
-              />
-            </label>
-            <br />
-            <label>
-              <input
-                type="text"
-                name="name"
-                value={productData.name}
-                onChange={handleInputChange}
-                placeholder="Product name"
-              />
-            </label>
-            <br />
-            <label>
-              <textarea
-                name="description"
-                value={productData.description}
-                onChange={handleInputChange}
-                placeholder="Description"
-              />
-            </label>
-            <br />
-            <label>
-              Colors:
-              <div className="color-circles">
-                {predefinedColors.map((color) => (
-                  <div
-                    key={color}
-                    className={`color-circle ${
-                      productData.selectedColors.includes(color)
-                        ? "selected-color"
-                        : ""
-                    }`}
-                    style={{ backgroundColor: color }}
-                    onClick={() => handleColorChange(color)}
-                  />
-                ))}
-              </div>
-            </label>
-            <br />
-            <label>
-              <input
-                type="text"
-                name="materials"
-                value={productData.materials}
-                onChange={handleInputChange}
-                placeholder="Enter materials (separated by comma, semicolon, or newline)..."
-              />
-            </label>
-            <br />
-            <label className="size-label">
-              <div className="dropdown">
-                <button
-                  type="button"
-                  className="dropdown-toggle"
-                  onClick={() => setIsOpen(!isOpen)}
-                >
-                  Select Size Type
-                </button>
-                {isOpen && (
-                  <div className="dropdown-menu">
-                    <ul>
-                      <li onClick={() => handleSizeTypeChange("letters")}>
-                        Letters (XS, S, M, L, XL, XXL)
-                      </li>
-                      <li onClick={() => handleSizeTypeChange("numbers")}>
-                        Numbers (28 to 46)
-                      </li>
-                    </ul>
-                    {productData.selectedSizeType && (
-                      <div className="available-sizes">
-                        <div>Available Sizes:</div>
-                        <label className="letters-label">
-                          {productData.selectedSizeType === "letters"
-                            ? ["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
-                                <label
-                                  key={size}
-                                  style={{ marginRight: "10px", width: "80%" }}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    checked={productData.selectedSizes.includes(
-                                      size
-                                    )}
-                                    onChange={() => handleSizeSelection(size)}
-                                  />
-                                  {size}
-                                </label>
-                              ))
-                            : Array.from(
-                                { length: 10 },
-                                (_, i) => 28 + i * 2
-                              ).map((size) => (
-                                <label
-                                  key={size}
-                                  style={{ marginRight: "10px" }}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    checked={productData.selectedSizes.includes(
-                                      size
-                                    )}
-                                    onChange={() => handleSizeSelection(size)}
-                                  />
-                                  {size}
-                                </label>
-                              ))}
-                        </label>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </label>
-            <br />
-            <br />
-            Photos:
-            <label className="photos-label">
-              <input
-                type="file"
-                name="photos"
-                onChange={handleFileChange}
-                multiple
-                id="file-upload"
-              />
-
-              {previewImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt="preview"
-                  className="preview-image"
+            <div className="add-datails">
+              <label>
+                <span className="text-inside-label">
+                  <span>Price *</span>
+                  <span>
+                    Consider material, labor, and business expenses. Account for
+                    shipping costs if offering free shipping to protect profits.
+                  </span>
+                </span>
+                <input
+                  className="theInput"
+                  type="text"
+                  name="price"
+                  value={productData.price}
+                  onChange={handleInputChange}
+                  placeholder="Price"
                 />
-              ))}
-              <button
-                type="button"
-                onClick={() => {
-                  handleButtonClick();
+              </label>
+              <br />
+              <label>
+                <span className="text-inside-label">
+                  <span>Title *</span>
+                  <span>
+                    Include keywords that buyers would use to search for your
+                    item.
+                  </span>
+                </span>
+                <input
+                  className="theInput"
+                  type="text"
+                  name="name"
+                  value={productData.name}
+                  onChange={handleInputChange}
+                  placeholder="Product name"
+                />
+              </label>
+              <br />
+
+              <label>
+                <span className="text-inside-label">
+                  <span>Description *</span>
+                  <span>
+                    Begin with a concise summary highlighting your item's best
+                    features. Shoppers initially view only the first few lines,
+                    so make them impactful. Unsure what to add? Shoppers also
+                    appreciate insights into your process and the story behind
+                    the item.
+                  </span>
+                </span>
+                <textarea
+                  name="description"
+                  value={productData.description}
+                  onChange={handleInputChange}
+                  placeholder="Description"
+                />
+              </label>
+              <br />
+
+              <label className="category-label">
+                <span className="text-inside-label">
+                  <span>Categories *</span>
+                  <span>
+                    Choose the main category of your product along side with the
+                    sub categories to make it easy to reach
+                  </span>
+                </span>
+                <ul>
+                  {categoryList &&
+                    categoryList.map((category) => (
+                      <>
+                        <div className="drop-cat">
+                          <li
+                            key={category.name}
+                            className={category.selected ? "selected-cat" : ""}
+                            onClick={() => handleCategoryClick(category)}
+                          >
+                            {category.name}
+                          </li>
+                          {category.selected &&
+                            subCategoriesToShow &&
+                            subCategoriesToShow[category.name] &&
+                            subCategoriesToShow[category.name].map((subCat) => (
+                              <li
+                                key={subCat.name}
+                                className={
+                                  subCat.selected ? "selected-cat" : ""
+                                }
+                                onClick={() =>
+                                  handleSubCategoryClick(subCat, category)
+                                }
+                              >
+                                {subCat.name}
+                              </li>
+                            ))}
+                        </div>
+                      </>
+                    ))}
+                </ul>
+              </label>
+              <br />
+              <br />
+              <span className="text-inside-label">
+                <span>Photos *</span>
+                <span>
+                  Use up to ten photos to show your item's most important
+                  qualities.
+                </span>
+              </span>
+              <label className="photos-label">
+                <div className="input-photo">
+                  <input
+                    type="file"
+                    name="photos"
+                    onChange={handleFileChange}
+                    multiple
+                    id="file-upload"
+                  />{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleButtonClick();
+                    }}
+                  >
+                    choose files
+                  </button>
+                </div>
+
+                {previewImages.map((image, index) => (
+                  <div>
+                    <img
+                      key={index}
+                      src={image}
+                      alt="preview"
+                      className="preview-image"
+                    />
+                    <button
+                      className="image-delete"
+                      onClick={handleImageDelete}
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+              </label>
+            </div>
+            <div className="add-datails">
+              <span className="text-inside-label">
+                <span>Title *</span>
+                <span>
+                  Include keywords that buyers would use to search for your
+                  item.
+                </span>
+              </span>
+
+              <label className="color-label">
+                <span className="text-inside-label">
+                  <span>Colors *</span>
+                  <span>
+                    Display the available colors of your product clearly.
+                    Customers rely on this information to make decisions. Keep
+                    it brief but effective in showcasing the range of colors
+                    available.
+                  </span>
+                </span>
+                <div className="select-div">
+                  <Select
+                    className="select-colors"
+                    dropdownHandle={true}
+                    name="colors"
+                    options={predefinedColors}
+                    multi
+                    searchable={true}
+                    labelField="name"
+                    valueField="name"
+                    onChange={(value) => handleColorChange(value)}
+                    color="#704731"
+                    style={{
+                      color: "black",
+                      "min-height": "60px",
+                      width: "100%",
+                    }}
+                  ></Select>
+                </div>
+              </label>
+              <br />
+              <label>
+                <span className="text-inside-label">
+                  <span>Materials *</span>
+                  <span>
+                    List the main materials used in your product upfront.
+                    Customers seek this information to gauge quality and
+                    suitability. Keep it concise yet impactful to highlight the
+                    materials' significance.
+                  </span>
+                </span>
+                <input
+                  className="theInput"
+                  type="text"
+                  name="materials"
+                  value={productData.materials}
+                  onChange={handleInputChange}
+                  placeholder="Enter materials (separated by comma, semicolon, or newline)..."
+                />
+              </label>
+              <br />
+              <div
+                className="size-label"
+                onClick={(event) => {
+                  event.stopPropagation();
                 }}
               >
-                choose files
-              </button>
-            </label>
-            <br />
-            Categories:
-            <label className="category-label">
-              <ul>
-                {categoryList.map((category) => (
-                  <>
-                    <div className="drop-cat">
-                      <li
-                        key={category.name}
-                        className={category.selected ? "selected-cat" : ""}
-                        onClick={() => handleCategoryClick(category)}
-                      >
-                        {category.name}
-                      </li>
-                      {category.selected &&
-                        initialSubCategories[category.name].map((subCat) => (
-                          <li
-                            key={subCat}
-                            className={subCat.selected ? "selected-cat" : ""}
-                            onClick={() => handleSubCategoryClick(subCat)}
-                          >
-                            {subCat}
-                          </li>
-                        ))}
-                    </div>
-                  </>
-                ))}
-              </ul>
-            </label>
+                <span className="text-inside-label">
+                  <span>Sizes *</span>
+                  <span>
+                    Select what type of sizes your product have also you can add
+                    your custom sizes
+                  </span>
+                </span>
+
+                <div
+                  className="dropdown"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                  }}
+                >
+                  <div className="checkbox-div">
+                    <input
+                      className="checkbox-size"
+                      type="checkbox"
+                      onClick={() => {
+                        setLetters(!letters);
+                      }}
+                    />
+                    Letters
+                  </div>
+
+                  <div
+                    className="select-div"
+                    onClick={(event) => {
+                      // Prevent the click event from reaching the checkbox
+                      event.stopPropagation();
+                    }}
+                  >
+                    <Select
+                      disabled={!letters}
+                      className="select-letters"
+                      dropdownHandle={true}
+                      name="letters"
+                      options={predefinedColors}
+                      multi={true}
+                      searchable={true}
+                      labelField="name"
+                      valueField="name"
+                      onChange={(value) =>
+                        handleSizeSelection(value, "letters")
+                      }
+                      color="#704731"
+                      style={{
+                        color: "black",
+                        "min-height": "60px",
+                        width: "100%",
+                      }}
+                    ></Select>
+                  </div>
+                </div>
+                <div className="dropdown">
+                  <div className="checkbox-div">                  
+                    <input
+                    className="checkbox-size"
+                      type="checkbox"
+                      onClick={() => setNumbers(!numbers)}
+                    />
+                    Numbers
+                  </div>
+
+                  <div className="select-div">
+                    <Select
+                      disabled={!numbers}
+                      className="select-numbers"
+                      dropdownHandle={true}
+                      name="numbers"
+                      options={predefinedNumbers}
+                      multi={true}
+                      searchable={true}
+                      labelField="name"
+                      valueField="name"
+                      onChange={(value) =>
+                        handleSizeSelection(value, "numbers")
+                      }
+                      color="#704731"
+                      style={{
+                        color: "black",
+                        "min-height": "60px",
+                        width: "100%",
+                      }}
+                    ></Select>
+
+                  </div>
+
+                  
+                  
+                </div>
+                <div className="dropdown">
+                  <div className="checkbox-div">                  
+                    <input
+                    className="checkbox-size"
+                      type="checkbox"
+                      onClick={() => setCustom(!custom)}
+                    />
+                    Custom
+                  </div>
+
+                  <input
+                  disabled = {!custom}
+                  className={custom ? "theInput" : "input-disabled"}
+                  type="text"
+                  name="materials"
+                  value={productData.materials}
+                  onChange={handleInputChange}
+                  placeholder="Enter materials (separated by comma, semicolon, or newline)..."
+                />
+                  
+                  
+                </div>
+              </div>
+              <br />
+            </div>
+
             <button type="submit" className="add-btn">
               Add Product
             </button>
