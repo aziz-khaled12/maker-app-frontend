@@ -177,10 +177,10 @@ const ProductAdd = () => {
   const [custom, setCustom] = useState(false);
   const [selectedLetters, setSellectedLetters] = useState([]);
   const [selectedNumbers, setSellectedNumbers] = useState([]);
-  const [selctedCutom, setSelectedCustom] = useState();
+  const [selctedCutom, setSelectedCustom] = useState([]);
   const [categoryList, setCategoryList] = useState(initialCategoryList);
-  const [subCategoriesToShow, setSubCategoriesToShow] = useState(initialSubCategories);
-    
+  const [subCategoriesToShow, setSubCategoriesToShow] =
+    useState(initialSubCategories);
 
   const handleButtonClick = () => {
     document.getElementById("file-upload").click();
@@ -211,7 +211,6 @@ const ProductAdd = () => {
   };
 
   const handleColorChange = (colors) => {
-    console.log("colors: ", colors);
     const selectedColors = [];
     colors.map((color) => {
       if (!selectedColors.includes(color.name)) {
@@ -221,8 +220,30 @@ const ProductAdd = () => {
     });
   };
 
+  const handleImageDelete = (index) => {      
+    const deletedPhoto = productData.photos.splice(index, 1);
+    const deletedPreview = previewImages.splice(index, 1);
+    const newPreview = [];
+    const newPhotos = [];
+    previewImages.map((photo)=>{
+      if (photo != deletedPreview) {
+        newPreview.push(photo)
+      }
+    })
+    productData.photos.map((photo) =>{
+      if (photo != deletedPhoto) {
+        newPhotos.push(photo)
+      }
+    })
+    setProductData({...productData, photos: newPhotos});
+    setPreviewImages(newPreview);
+    
+  };
 
-  const handleImageDelete = () => {};
+  const handleCustomSize = (e) => {
+    const {value} = e.target;
+    setSelectedCustom(value);
+  };
 
   const handleSizeSelection = (sizes, type) => {
     const selectedLet = [];
@@ -250,7 +271,6 @@ const ProductAdd = () => {
 
   useEffect(() => {
     const selectedSizes = selectedLetters.concat(selectedNumbers);
-    console.log("selected", selectedSizes);
     setProductData({ ...productData, selectedSizes });
   }, [selectedLetters, selectedNumbers]);
 
@@ -266,6 +286,7 @@ const ProductAdd = () => {
       formData.append("colors", color);
     });
 
+
     const materialArray = productData.materials
       .split(/[,\n;]/)
       .map((material) => material.trim())
@@ -274,9 +295,17 @@ const ProductAdd = () => {
       formData.append("materials", material);
     });
 
+    const customSizes = selctedCutom.split(/[,\n;]/);
+    customSizes.forEach((size) =>{
+      setProductData({...productData.selectedSizes.push(size)});
+    })
+
+    
     productData.selectedSizes.forEach((sizes) => {
       formData.append("sizes", sizes);
     });
+
+    console.log(productData.selectedSizes)
     productData.categories.forEach((categories) => {
       formData.append("categories", categories);
     });
@@ -288,6 +317,7 @@ const ProductAdd = () => {
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     formData.append("sellerId", decodedToken.userId);
 
+    console.log(productData);
     try {
       const response = await axios.post(
         "https://maker-app-backend.vercel.app/products",
@@ -332,7 +362,6 @@ const ProductAdd = () => {
       }
     );
 
-    console.log("updated sub:", updatedSubCategories);
 
     setSubCategoriesToShow({
       ...subCategoriesToShow,
@@ -388,7 +417,6 @@ const ProductAdd = () => {
     updateProductCategories();
   }, [subCategoriesToShow, categoryList]);
 
-  console.log("last", productData.selectedSizes);
 
   return (
     <>
@@ -504,7 +532,7 @@ const ProductAdd = () => {
                   qualities.
                 </span>
               </span>
-              <label className="photos-label">
+              <div className="photos-label">
                 <div className="input-photo">
                   <input
                     type="file"
@@ -524,7 +552,7 @@ const ProductAdd = () => {
                 </div>
 
                 {previewImages.map((image, index) => (
-                  <div>
+                  <div className="preview-container">
                     <img
                       key={index}
                       src={image}
@@ -532,14 +560,15 @@ const ProductAdd = () => {
                       className="preview-image"
                     />
                     <button
+                      type="button"
                       className="image-delete"
-                      onClick={handleImageDelete}
+                      onClick={() => handleImageDelete(index)}
                     >
                       X
                     </button>
                   </div>
                 ))}
-              </label>
+              </div>
             </div>
             <div className="add-datails">
               <span className="text-inside-label">
@@ -601,12 +630,7 @@ const ProductAdd = () => {
                 />
               </label>
               <br />
-              <div
-                className="size-label"
-                onClick={(event) => {
-                  event.stopPropagation();
-                }}
-              >
+              <div className="size-label">
                 <span className="text-inside-label">
                   <span>Sizes *</span>
                   <span>
@@ -615,12 +639,7 @@ const ProductAdd = () => {
                   </span>
                 </span>
 
-                <div
-                  className="dropdown"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                  }}
-                >
+                <div className="dropdown">
                   <div className="checkbox-div">
                     <input
                       className="checkbox-size"
@@ -632,19 +651,13 @@ const ProductAdd = () => {
                     Letters
                   </div>
 
-                  <div
-                    className="select-div"
-                    onClick={(event) => {
-                      // Prevent the click event from reaching the checkbox
-                      event.stopPropagation();
-                    }}
-                  >
+                  <div className="select-div">
                     <Select
                       disabled={!letters}
                       className="select-letters"
                       dropdownHandle={true}
                       name="letters"
-                      options={predefinedColors}
+                      options={predefinedLetters}
                       multi={true}
                       searchable={true}
                       labelField="name"
@@ -662,9 +675,9 @@ const ProductAdd = () => {
                   </div>
                 </div>
                 <div className="dropdown">
-                  <div className="checkbox-div">                  
+                  <div className="checkbox-div">
                     <input
-                    className="checkbox-size"
+                      className="checkbox-size"
                       type="checkbox"
                       onClick={() => setNumbers(!numbers)}
                     />
@@ -692,16 +705,12 @@ const ProductAdd = () => {
                         width: "100%",
                       }}
                     ></Select>
-
                   </div>
-
-                  
-                  
                 </div>
                 <div className="dropdown">
-                  <div className="checkbox-div">                  
+                  <div className="checkbox-div">
                     <input
-                    className="checkbox-size"
+                      className="checkbox-size"
                       type="checkbox"
                       onClick={() => setCustom(!custom)}
                     />
@@ -709,16 +718,14 @@ const ProductAdd = () => {
                   </div>
 
                   <input
-                  disabled = {!custom}
-                  className={custom ? "theInput" : "input-disabled"}
-                  type="text"
-                  name="materials"
-                  value={productData.materials}
-                  onChange={handleInputChange}
-                  placeholder="Enter materials (separated by comma, semicolon, or newline)..."
-                />
-                  
-                  
+                    disabled={!custom}
+                    className={custom ? "theInput" : "input-disabled"}
+                    type="text"
+                    name="custom-size"
+                    value={selctedCutom}
+                    onChange={handleCustomSize}
+                    placeholder="Enter materials (separated by comma, semicolon, or newline)..."
+                  />
                 </div>
               </div>
               <br />

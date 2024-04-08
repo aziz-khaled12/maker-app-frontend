@@ -227,6 +227,7 @@
  }
 
  .big-add-container form .photos-label{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -362,4 +363,19 @@
   font-size: 1em;
   border: #ccc 1px solid;
   opacity: .3;
+ }
+
+ .preview-container{
+  display: flex;
+ }
+ .big-add-container form .photos-label .image-delete{
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  color: black;
+ }
+
+ .big-add-container form .photos-label .image-delete:hover{
+  opacity: .2;
+  background-color: navajowhite;
  }

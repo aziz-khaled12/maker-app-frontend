@@ -20,7 +20,7 @@ const DropList = ({ title, items }) => {
         {isOpen && (
           <ul className="list" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {items.map((item, index) => (
-              <Link to={`/products/${title}/${item}`} key={index}><li >  {item}  </li></Link>
+              <Link to={`/products/categories/${item}`} key={index}><li >  {item}  </li></Link>
             ))}
           </ul>
         )}
