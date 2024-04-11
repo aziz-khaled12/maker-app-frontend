@@ -1,11 +1,3 @@
-:root{
-  --text: #e8e5e4;
-  --background: #3e2213;
-  --primary: #d3ab92;
-  --secondary: #704731;
-  --accent: #cf7544;
-
-}
 
 .seller-wrapper{
   display: flex;

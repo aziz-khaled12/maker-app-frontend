@@ -5,14 +5,7 @@
 ul{
     list-style: none;
 }
-:root{
-    --text: #e8e5e4;
-    --background: #3e2213;
-    --primary: #d3ab92;
-    --secondary: #704731;
-    --accent: #cf7544;
-  
-  }
+
 .category-container {
     margin: 0;
     padding: 0;

@@ -1,11 +1,4 @@
-:root{
-    --text: #e8e5e4;
-    --background: #3e2213;
-    --primary: #d3ab92;
-    --secondary: #704731;
-    --accent: #cf7544;
-  
-  }
+
 
 .big-wrapper-login{
     display: flex;
@@ -57,7 +50,7 @@
 .log-in-container .login-with-socials .head .line{
     height: 2px;
     width: 35%;
-    background-color: var(--primary);
+     
 }
 
 .log-in-container .login-with-socials .btns{

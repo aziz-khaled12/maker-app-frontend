@@ -24,9 +24,7 @@ const DropList = ({ title, items }) => {
             ))}
           </ul>
         )}
-
       </div>
-
     </>
   );
 };

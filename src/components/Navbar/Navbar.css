@@ -1,14 +1,7 @@
 a{
     text-decoration: none;
 }
-:root{
-    --text: #e8e5e4;
-    --background: #3e2213;
-    --primary: #d3ab92;
-    --secondary: #704731;
-    --accent: #cf7544;
-  
-  }
+
 .Navbar {
     position: absolute;
     display: flex;
@@ -67,7 +60,7 @@ a{
 }
 
 .active-search-space{
-    background-color: var(--primary);
+    background-color: #f9f9f9;
     height: 50px;
     width: 100%;
     border-radius: 30px;
@@ -80,7 +73,7 @@ a{
     transition-duration: .2s;
 }
 .search-space{
-    background-color: var(--primary);
+    background-color: #f9f9f9;
     height: 50px;
     width: 500px;
     border-radius: 30px;
