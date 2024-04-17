@@ -155,14 +155,13 @@ a {
         width: 200px;
     }
     .search-icon{
+        font-size: 12px;
         right: 10px;
-
     }
     .container{
         width: 90%;
     }
     .logo{
-        right: 0;
         font-size: 12px;
     }
     .Sign{
