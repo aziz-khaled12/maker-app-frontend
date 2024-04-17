@@ -55,6 +55,7 @@ a {
 }
 
 .Search {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,4 +147,36 @@ a {
     align-items: flex-end;
     width: fit-content;
     width: 10%;
+}
+
+@media (max-width: 600px) {
+
+    .Search{
+        width: 200px;
+    }
+    .search-icon{
+        right: 10px;
+
+    }
+    .container{
+        width: 90%;
+    }
+    .logo{
+        right: 0;
+        font-size: 12px;
+    }
+    .Sign{
+        width: 70px;
+    }
+
+    .log{
+        font-size: 10px;
+    }
+
+    .search-space{
+        width: 130px;
+        height: 25px;
+        font-size: 12px;
+    }
+    
 }

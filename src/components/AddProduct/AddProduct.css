@@ -56,17 +56,17 @@
    justify-content: space-between;
  }
 
- .big-add-container form .add-datails{
+ .big-add-container form .add-datails {
   width: 100%;
   min-height: 150vh;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
   flex-direction: column;
-  border: 1px navajowhite solid;
+  border: 1px var(--primary) solid;
   padding: 20px;
   margin: 20px;
- }
+}
 
  .big-add-container form .add-datails .theInput{
    width: 65%;
