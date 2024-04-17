@@ -9,20 +9,20 @@ const VendorGrid = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://maker-app-backend.vercel.app/sellers'); 
+        const response = await axios.get('https://maker-app-backend.vercel.app/sellers');
         setSellers(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
-    
-    fetchData();  
+
+    fetchData();
   }, []);
-  
+
   return (
     <div className="grid-container-2">
       {/* Check if sellers array is not empty before mapping */}
-      {sellers.length > 0 && sellers.map(seller => (
+      {sellers.length > 0 && sellers.slice(0, 7).map(seller => (
         <Vendor key={seller._id} seller={seller} />
       ))}
     </div>

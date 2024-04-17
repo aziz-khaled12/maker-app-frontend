@@ -1,9 +1,8 @@
 
 .Back-ground{
     display: flex;
-    background-image: url(../../assets/scissors.jpg);
     background-size: cover;
-    height: 140vh;
+    height: 80vh;
     width: 100%;
     margin: 0;
     align-items: center;
@@ -15,7 +14,7 @@
     width: 80%;
     margin-left: 100px;
     margin-right: 100px;
-    height: 100vh;
+    height: 60vh;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
@@ -23,27 +22,37 @@
 
 .Hero-left{
     margin: 0;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
 }
 .Hero-left h1{
-    color: #966F33;
-    text-shadow: 2px 2px 2px black;
+    color: var(--primary);
+    text-shadow: 1px 1px 1px black;
 }
 
 .Hero-left h2{
-    color: white;
-    text-shadow: 2px 2px 2px black;
+    color: var(--text);
+    font-size: 16px;
+    width: 60%;
 }
 
 .btn{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background-color: white;
-    height: 56px;
-    width: 154px;
-    border-radius: 30px;
-    font-size: 20px;
+    height: 45px;
+    width: 130px;
+    border-radius: 12px;
+    font-size: 19px;
     font-weight: bold;
-    color: #966F33;
-    box-shadow: 2px 2px 2px black;
+    color: var(--primary);
+    box-shadow: 1px 1px 1px black;
+}
+
+.btn:hover{
+    background-color: #f1f1f1;
 }

@@ -68,6 +68,7 @@ const ProductPage = () => {
     setShowModal(true);
     console.log(showModal)
     document.body.style.overflow = 'hidden';
+    
   };
 
   const handleModalClose = () => {

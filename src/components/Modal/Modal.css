@@ -1,6 +1,7 @@
 
 
 .modal{
+    display: flex;
     position: fixed;
     height: 90vh;
     width: 50%;

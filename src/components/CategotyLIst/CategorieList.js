@@ -16,9 +16,13 @@ const CategorieList = () => {
   return (
     <>
       <div className="category-container">
+        <div className="cats-inner-container">
+
+        
         {categoryList.map((category) => {
           return  <DropList key={category} title={category} items={subCategories[category]} />
         })}
+      </div>
       </div>
     </>
   )

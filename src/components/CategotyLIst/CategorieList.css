@@ -1,27 +1,25 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
 .category-container {
     margin: 0;
     padding: 0;
-    position: absolute;
-    top:80px;
-    display: grid;
+    position: relative;
+    width: 80%;
     height: 50px;
-    width: 100%;
-    grid-template-columns: 13% 13% 13% 13% 13% 13%;
-    grid-template-rows: 50px;
-    gap: 10px 10px;
-    grid-template-areas:
-        ". . . . . .";
-    justify-content: center;
+    display: flex;
     align-items: center;
-    border-top: 1px solid rgb(156, 152, 152);
-    border-bottom: 1px solid rgb(156, 152, 152);
-    background-color: var(--secondary);
+    justify-content: center;
+}
+
+.cats-inner-container {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    align-items: center;
 }

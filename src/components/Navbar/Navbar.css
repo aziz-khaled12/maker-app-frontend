@@ -1,39 +1,40 @@
-a{
+a {
     text-decoration: none;
 }
 
 .Navbar {
     position: absolute;
     display: flex;
-    height: 80px;
+    flex-wrap: wrap;
+    height: auto;
     width: 100%;
     background-color: var(--background);
     align-items: center;
     justify-content: center;
     z-index: 2;
     transition-duration: .2s;
-    border-bottom: #d3ab92 2px solid;
+    box-shadow: black 1px 0px 5px 1px;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     width: 80%;
 }
-.logo{
-    display: flex;
-    height: auto;
-    font-weight: bold;
-    height: 60px;
-    font-size: 25px;
-    justify-content: center;
-    align-items: center;   
-    color: var(--text);
 
-    text-shadow: 1px 1px 1px black;
+.logo {
+    display: flex;
+    font-weight: 500;
+    height: 60px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
 }
-.NavMenu{
+
+.NavMenu {
     display: flex;
     height: 60px;
     width: 400px;
@@ -41,17 +42,19 @@ a{
     align-items: center;
     justify-content: space-evenly;
 }
-.NavMenu a{
+
+.NavMenu a {
     color: var(--text);
     font-weight: bold;
     text-decoration: none;
 }
 
-.NavMenu a:hover{
+.NavMenu a:hover {
     color: var(--primary);
     transition-duration: .2s;
 }
-.Search{
+
+.Search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +62,7 @@ a{
     width: 70%;
 }
 
-.active-search-space{
+.active-search-space {
     background-color: #f9f9f9;
     height: 50px;
     width: 100%;
@@ -72,68 +75,72 @@ a{
     font-weight: 500;
     transition-duration: .2s;
 }
-.search-space{
-    background-color: #f9f9f9;
+
+.search-space {
+    background-color: var(--background);
     height: 50px;
     width: 500px;
     border-radius: 30px;
-    border: none;
+    border: 2px solid var(--primary);
     outline: none;
     padding: 20px;
     color: black;
-    font-size: large;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 300;
 }
-.Sign{
+
+.Sign {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 160px;
+    width: 120px;
 }
 
 
-.log{
+.log {
     border: none;
     background-color: transparent;
     color: var(--text);
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 400;
 }
 
-.log:hover{
+.log:hover {
     color: var(--primary);
     transition-duration: .2s;
 }
 
-.log a:hover{
+.log a:hover {
     color: var(--primary);
     transition-duration: .2s;
 }
 
 
 
-.profile-menu{
+.profile-menu {
     height: 200px;
     width: 100%;
     background-color: black;
 }
 
-.search-icon{
+.search-icon {
     position: absolute;
     right: 340px;
     font-size: larger;
     cursor: pointer;
 }
 
-.search-space, .active-search-space {
+.search-space,
+.active-search-space {
     transition: width 0.5s, padding 0.5s;
 }
 
 .Search.active .search-space {
     width: 100%;
-  }
+    font-weight: 300;
+}
 
-.prof-drop-container{
+.prof-drop-container {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;

@@ -3,6 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileDrop from '../ProfileDrop/ProfileDrop';
+import CategorieList from '../CategotyLIst/CategorieList';
+
 
 const Navbar = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -98,7 +100,9 @@ const Navbar = () => {
           )}
 
         </div>
+        <CategorieList />
       </nav>
+      
     </>
   );
 };

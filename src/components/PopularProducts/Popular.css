@@ -1,4 +1,12 @@
 
+.popular-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent);
+}
 .popular-container{
     display: flex;
     width: 80%;
@@ -15,6 +23,7 @@
     font-weight: bold;
     color: white;
 }
+
 
 
 
@@ -46,20 +55,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px;
-    height: 54px;
-    width: 154px;
+    height: 40px;
+    width: 140px;
     color: black;
-    background-color: burlywood;
+    background-color: var(--background);
     border: 1px solid ;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 12px;
     transition-duration: 0.2s;
   }
 
   .see-more-btn:hover{
     background-color: white;
-    color: rgb(168, 107, 70);
   }

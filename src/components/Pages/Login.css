@@ -50,7 +50,7 @@
 .log-in-container .login-with-socials .head .line{
     height: 2px;
     width: 35%;
-     
+    background-color: var(--primary);
 }
 
 .log-in-container .login-with-socials .btns{
@@ -63,10 +63,11 @@
 .log-in-container .login-with-socials .btns .social-btn{
     background-color: transparent;
     color: var(--text);
-    border-radius: 46px;
-    border: 1px var(--secondary) solid;
+    border-radius: 12px;
+    border: 1px var(--primary) solid;
     width: 49%;
-    height: 54px;
+    height: auto;
+    padding: 10px;
 }
 
 .log-in-container .login-with-email{
@@ -100,38 +101,23 @@
     flex-direction: column;
     height: 120px;
     width: 100%;
-
 }
 .log-in-container .login-with-email .input-container input{
     background-color: transparent;
     border: 1px var(--primary) solid;
     border-radius: 4px;
     width: 100%;
-    height: 48px;
+    height: auto;
     color: var(--text);
     font-size: 16px;
+    border-radius: 12px;
     padding: 10px;
 }
 
-.submit-btn{
-    height: 54px;
-    width: 100%;
-    border-radius: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: 1px white solid;
-    color: var(--text);
-    font-size: 15px;
-}
-.submit-btn:hover{
-    background-color: var(--primary);
-    color: var(--secondary);
-}
+
 .log-in-container .login-with-socials .btns .social-btn:hover{
-    background-color: var(--primary);
-    color: var(--secondary);
+    background-color: var(--text);
+    color: var(--primary);
     transition-duration: .2s;
 }
 
