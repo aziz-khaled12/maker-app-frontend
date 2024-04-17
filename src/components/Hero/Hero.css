@@ -1,7 +1,7 @@
 .Back-ground {
   display: flex;
   background-size: cover;
-  height: 80vh;
+  height: 400px;
   width: 100%;
   margin: 0;
   align-items: center;
@@ -21,12 +21,12 @@
 
 .Hero-left {
   margin: 0;
-  height: 40vh;
+  height: 300px;
   display: flex;
   flex-direction: column;
-
   justify-content: space-evenly;
 }
+
 .Hero-left h1 {
   color: var(--primary);
   text-shadow: 1px 1px 1px black;
@@ -93,7 +93,7 @@
     justify-items: center;
     align-items: flex-start;
   }
-  .Back-ground{
+  .Back-ground {
     height: 500px;
   }
 }

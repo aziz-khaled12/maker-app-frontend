@@ -179,3 +179,43 @@ a {
     }
     
 }
+
+@media (max-width: 600px) {
+
+    .search-icon{
+        font-size: 12px;
+        right: 10px;
+    }
+    .container{
+        width: 90%;
+    }
+    .logo{
+        font-size: 16px;
+    }
+    .Sign{
+        width: 70px;
+    }
+
+    .log{
+        font-size: 10px;
+    }
+
+    .search-space{
+        width: 130px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    .lil-profile{
+        height: 30px;
+        width: 30px;
+    }
+    
+}
+
+@media (min-width: 600px) and (max-width: 1070px) {
+    .search-space{
+        width: 400px;
+    }
+}
+

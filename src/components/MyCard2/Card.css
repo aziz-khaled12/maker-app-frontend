@@ -47,8 +47,8 @@
     display: flex;
     height: 46px;
     width: 47%;
-    background-color: transparent;
-    color: white;
+    background-color: var(--text);
+    color: var(--background);
     border-radius: 30px;
     align-items: center;
     justify-content: center;
@@ -56,9 +56,9 @@
     border: 1px #000000 solid;
 }
 .act-btn:hover{
-    background-color: white;
-    color: #5142FC;
-    
+    background-color: var(--background);
+    color: var(--text);
+    transition-duration: .2s
 }
 
 .inside-text-wrapper{
@@ -90,10 +90,10 @@
     width: 36px;
     border-radius: 50%;
     font-size: 14px;
-    border: 1px #5142FC solid;
     color: white;
     background-color: black;
     cursor: pointer;
+    border: none;
 }
 
 .liked .inside{
