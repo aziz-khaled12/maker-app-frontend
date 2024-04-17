@@ -220,28 +220,27 @@ const ProductAdd = () => {
     });
   };
 
-  const handleImageDelete = (index) => {      
+  const handleImageDelete = (index) => {
     const deletedPhoto = productData.photos.splice(index, 1);
     const deletedPreview = previewImages.splice(index, 1);
     const newPreview = [];
     const newPhotos = [];
-    previewImages.map((photo)=>{
+    previewImages.map((photo) => {
       if (photo != deletedPreview) {
-        newPreview.push(photo)
+        newPreview.push(photo);
       }
-    })
-    productData.photos.map((photo) =>{
+    });
+    productData.photos.map((photo) => {
       if (photo != deletedPhoto) {
-        newPhotos.push(photo)
+        newPhotos.push(photo);
       }
-    })
-    setProductData({...productData, photos: newPhotos});
+    });
+    setProductData({ ...productData, photos: newPhotos });
     setPreviewImages(newPreview);
-    
   };
 
   const handleCustomSize = (e) => {
-    const {value} = e.target;
+    const { value } = e.target;
     setSelectedCustom(value);
   };
 
@@ -286,7 +285,6 @@ const ProductAdd = () => {
       formData.append("colors", color);
     });
 
-
     const materialArray = productData.materials
       .split(/[,\n;]/)
       .map((material) => material.trim())
@@ -295,17 +293,19 @@ const ProductAdd = () => {
       formData.append("materials", material);
     });
 
-    const customSizes = selctedCutom.split(/[,\n;]/);
-    customSizes.forEach((size) =>{
-      setProductData({...productData.selectedSizes.push(size)});
-    })
+    if (selctedCutom.length > 0) {
+      const customSizes = selctedCutom.split(/[,\n;]/);
+      customSizes.forEach((size) => {
+        setProductData({ ...productData.selectedSizes.push(size) });
+      });
+    }
 
     
     productData.selectedSizes.forEach((sizes) => {
       formData.append("sizes", sizes);
     });
 
-    console.log(productData.selectedSizes)
+    console.log(productData.selectedSizes);
     productData.categories.forEach((categories) => {
       formData.append("categories", categories);
     });
@@ -362,7 +362,6 @@ const ProductAdd = () => {
       }
     );
 
-
     setSubCategoriesToShow({
       ...subCategoriesToShow,
       [clickedCategory.name]: updatedSubCategories,
@@ -416,7 +415,6 @@ const ProductAdd = () => {
   useEffect(() => {
     updateProductCategories();
   }, [subCategoriesToShow, categoryList]);
-
 
   return (
     <>

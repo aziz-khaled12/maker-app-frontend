@@ -44,7 +44,7 @@ const MyCard2 = ({ product }) => {
 
   const handleBuyNowClick = async (productId) => {
     try {
-      const response = await axios.get(`/products/${productId}`);
+      const response = await axios.get(`https://maker-app-backend.vercel.app/products/${productId}`);
       if (response.status === 200) {
         console.log("Product details:", response.data);
         navigate(`/products/${productId}`);

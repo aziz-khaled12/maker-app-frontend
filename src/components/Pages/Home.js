@@ -22,9 +22,9 @@ const Home = () => {
   return (
     <>
       <Hero></Hero>
-      <Slideshow></Slideshow>
-      <TopVendors></TopVendors>
       <Popular></Popular>
+      <Slideshow></Slideshow>
+      <TopVendors></TopVendors>           
     </>
   );
 };

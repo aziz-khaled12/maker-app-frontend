@@ -26,11 +26,10 @@ const Popular = () => {
         <div className='popular-container'>
           <div className='top'>
             <h2>Popular products:</h2>
+            <Link className='see-more-btn'>See more</Link>
           </div>
           <CardGrid products={products} />
         </div>
-
-        <Link className='see-more-btn'>See more</Link>
       </div>
     </>
   )

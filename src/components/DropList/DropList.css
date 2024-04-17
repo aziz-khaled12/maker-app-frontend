@@ -50,5 +50,15 @@
 
 .list li:hover{
   cursor: pointer;
+}
 
+@media (max-width: 600px) {
+  .title{
+    font-size: 12px;
+    height: 20px;
+    border-radius: 2px;
+  }
+  .list li{
+    font-size: 10px;
+  }
 }

@@ -4,6 +4,7 @@ import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileDrop from '../ProfileDrop/ProfileDrop';
 import CategorieList from '../CategotyLIst/CategorieList';
+import { FiMenu } from "react-icons/fi";
 
 
 const Navbar = () => {

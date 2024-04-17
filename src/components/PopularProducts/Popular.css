@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: var(--accent);
+  justify-content: space-between;
+  background-color: var(--background);
+  min-height: 620px;
 }
 .popular-container{
     display: flex;
@@ -21,52 +22,20 @@
     justify-content: space-between;
     margin: 30px;
     font-weight: bold;
-    color: white;
+    color: var(--text);
 }
 
-
-
-
-.hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    color: #0087ca;
-  }
-  
-  .hover-underline-animation::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 4px;
-    bottom: -2px;
-    left: 0;
-    background-color: #0087ca;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .hover-underline-animation:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  .see-more-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 140px;
-    color: black;
-    background-color: var(--background);
-    border: 1px solid ;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 12px;
-    transition-duration: 0.2s;
-  }
+.see-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
 
   .see-more-btn:hover{
-    background-color: white;
+    color: var(--primary);
   }
