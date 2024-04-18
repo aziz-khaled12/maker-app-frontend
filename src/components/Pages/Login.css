@@ -24,6 +24,9 @@
     flex-direction: column;
     height: 550px;
     width: 50%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 5px 1px;
 }
 .log-in-container header{
     font-size: 36px;
@@ -123,4 +126,31 @@
 
 button{
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .log-in-container{
+        width: 90%;
+
+    }
+
+    .log-in-container .login-with-socials .head{
+        font-size: 17px;
+    }
+    .log-in-container .login-with-socials .head .line{
+        font-size: 1px;
+        width: 20%;
+    }
+    .log-in-container {
+        width: 90%;
+    }
+
+    .log-in-container .login-with-email .head{
+        font-size: 17px;
+    }
+
+    .log-in-container .login-with-email .head .line{
+        font-size: 1px;
+        width: 20%;
+    }
 }

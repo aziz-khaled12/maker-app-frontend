@@ -90,3 +90,15 @@
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    .profile-card{
+        width: 100%;
+        height: 400px;
+    }
+    .huge-profile-container{
+        flex-direction: column;
+    }
+    .huge-profile-container .big-profile-container{
+        width: 100%;
+    }
+}

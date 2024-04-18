@@ -2,7 +2,7 @@
 
 .big-wrapper-signup{
     display: flex;
-    height: 180vh;
+    min-height: 1000px;
     width: 100%;
     background-color: transparent;
     align-items: flex-start;
@@ -63,13 +63,13 @@
     width: 100%;
 }
 
-.sign-up-container .signup-with-socials .btns .social-btn{
+.sign-up-container .signup-with-socials .btns .social-btn {
     background-color: transparent;
     color: var(--text);
-    border-radius: 46px;
+    border-radius: 12px;
     border: 1px var(--primary) solid;
     width: 49%;
-    height: 54px;
+    height: 40px;
 }
 
 .sign-up-container .signup-with-email{
@@ -124,10 +124,11 @@
     align-items: center;
     justify-content: center;
     background-color: var(--primary);
-    border: 1px var(--primary) solid;
+    border: none;
     font-size: 15px;
     font-weight: 600;
     padding: 10px 50px;
+    box-shadow: 0px 0px 4px 1px;
 }
 .submit-btn:hover{
     background-color: var(--text);
@@ -168,4 +169,27 @@ button{
 
 .selected{
     display: none;
+}
+
+@media (max-width: 600px) {
+    
+    .sign-up-container .signup-with-socials .head {
+        font-size: 17px;
+    }
+
+    .sign-up-container .signup-with-socials .head .line {
+        height: 1px;
+        width: 20%;
+    }
+    .sign-up-container {
+        width: 90%;
+    }
+
+    .sign-up-container .signup-with-email .head{
+        font-size: 17px;
+    }
+    .sign-up-container .signup-with-email .head .line{
+        height: 1px;
+        width: 20%;
+    }
 }

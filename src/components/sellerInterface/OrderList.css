@@ -11,15 +11,17 @@
 }
 .order-top-container{
     width: 100%;
-    color: white;
+    color: var(--text);
     font-size: 30px;
     font-weight: 500;
     margin: 20px;
 }
 .state-select{
     background-color: #f2f2f2;
-    color: black;
     border: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
 }
 .state-select option{
     font-size: 14px;

@@ -107,7 +107,7 @@ function Dashboard() {
 
     return (
         <>
-            <div className="huge-container">
+            <div className="huge-procucts-container">
                 <div className="dash-top">
                     <div className='top-inside'>
                         <div className='inside'>

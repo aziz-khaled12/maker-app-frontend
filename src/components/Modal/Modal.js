@@ -76,7 +76,7 @@ const Modal = ({ productDetails, onClose, onBuyNow }) => {
       </button>
       <div className="modal-content">
         <form className={!next ? "form-show" : "form-hide"}>
-          <h2>Select Options</h2>
+          <h2>Enter Your Informations</h2>
           {isLoading ? (
             <p>...</p>
           ) : error ? (
@@ -137,6 +137,7 @@ const Modal = ({ productDetails, onClose, onBuyNow }) => {
           )}
         </form>
         <form className={next ? "form-show" : "form-hide"}>
+          <h2>Select Options</h2>
           <div className="container-modal">
             <label htmlFor="size" className="size-label-modal">
               Size:
@@ -200,7 +201,7 @@ const Modal = ({ productDetails, onClose, onBuyNow }) => {
               onChange={handleQuantityChange}
             />
           </div>
-          <div>
+          <div className="buttons-actions">
             <button className="buy-now-btn" onClick={handleBuyNowClick}>
               Buy Now
             </button>

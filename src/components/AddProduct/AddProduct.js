@@ -107,7 +107,7 @@ const initialSubCategories = {
   Men: [
     { name: "Shirts", selected: false },
     { name: "Pants", selected: false },
-    { name: "Winter Clothes", selected: false },
+    { name: "Winter", selected: false },
     { name: "Pijamas", selected: false },
     { name: "Sports", selected: false },
   ],

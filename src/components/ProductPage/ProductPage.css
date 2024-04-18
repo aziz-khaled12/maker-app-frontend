@@ -17,6 +17,7 @@
 
 }
 
+
 main{
     width: 100%;
     display: flex;
@@ -30,7 +31,7 @@ main .details{
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 main .details .image-container{
@@ -93,7 +94,7 @@ main .details .info-container .actions .like1{
     font-size: 14px;
     border: 1px var(--primary) solid;
     color: var(--text);
-    background-color: transparent;
+    background-color: var(--primary);
     cursor: pointer;
     box-shadow: 2px 2px 2px black;
 }
@@ -125,9 +126,9 @@ main .details .info-container .actions .share-more .btn{
     width: 36px;
     border-radius: 50%;
     font-size: 14px;
-    border: 1px var(--primary) solid;
+    border: none;
     color: white;
-    background-color: transparent;
+    background-color: var(--primary);
     cursor: pointer;
 }
 
@@ -145,6 +146,7 @@ main .details .info-container .price{
     align-items: center;
     border-radius: 8px;
     background-color: black;
+    color: var(--background);
 }
 
 main .details .info-container .price .inside{
@@ -152,7 +154,6 @@ main .details .info-container .price .inside{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    color: var(--text);
 }
 
 main .details .info-container .price .inside :first-child{
@@ -170,10 +171,11 @@ main .details .info-container .buy-btn{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    border: 1px white solid;
-    color: white;
     cursor: pointer;
+    background-color: var(--primary);
+    color: var(--background);
+    border-radius: 12px;
+    border: 1px var(--text) solid;
 }
 
 main .details .info-container .buy-btn .inside{
@@ -191,9 +193,9 @@ main .suggestions{
 }
 
 main .details .info-container .buy-btn:hover{
-    background-color: white;
+    background-color: var(--text);
+    color: var(--primary);
     transition-duration: .2s;
-    color: var(--secondary);
 }
 
 main .suggestions .top{
@@ -224,3 +226,46 @@ main .suggestions .top a{
     z-index: 1000; /* Ensure the backdrop appears above other elements */
   }
   
+  @media (max-width: 600px) {
+    main .details{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        min-height: 500px;
+        flex-direction: column;
+    }
+
+    main .details .info-container {
+        height: 400px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    main .details .info-container .actions .share-more {
+        height: 36px;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    main .details .image-container {
+        height: 350px;
+        width: 100%;
+        display: flex;
+        background-size: cover;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .stars {
+        width: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+  }

@@ -45,17 +45,17 @@ function ProfileDrop() {
             {decodedToken && (
               <>
                 <li>{decodedToken.name}</li> {/* Assuming 'name' is present in your decoded token */}
-                <Link to={`/Profile/${decodedToken.userId}`}><li> <CgProfile />Profile</li></Link>
+                <Link to={`/Profile/${decodedToken.userId}`}><li> Profile<CgProfile /></li></Link>
                 {userRole === 'seller' &&
                   <>
-                    <Link to={'/profile/:userId/OrderList'}><li> <RiShoppingBagFill />Orders</li></Link>
-                    <Link to={'/profile/:userId/Dashboard'}><li> <RiShoppingBagFill />Dashboard</li></Link>
-                    <Link to={'/AddProduct'}><li> <RiShoppingBagFill />Add product</li></Link>
+                    <Link to={'/profile/:userId/OrderList'}><li> Orders<RiShoppingBagFill /></li></Link>
+                    <Link to={'/profile/:userId/Dashboard'}><li> Dashboard<RiShoppingBagFill /></li></Link>
+                    <Link to={'/AddProduct'}><li> Add product<RiShoppingBagFill /></li></Link>
                   </>
                 }
               </>
             )}
-            <Link to={'/login'}><li onClick={handleLogout}> <RiLogoutBoxRLine /> Logout</li></Link>
+            <Link to={'/login'}><li onClick={handleLogout}>  Logout<RiLogoutBoxRLine /></li></Link>
           </ul>
         )}
       </div>

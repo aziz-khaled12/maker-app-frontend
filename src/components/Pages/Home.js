@@ -23,7 +23,7 @@ const Home = () => {
     <>
       <Hero></Hero>
       <Popular></Popular>
-      <Slideshow></Slideshow>
+      
       <TopVendors></TopVendors>           
     </>
   );

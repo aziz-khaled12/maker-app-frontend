@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Automatically adjust columns based on container width */
-    grid-template-rows: repeat(auto-fill, minmax(0px, 1fr)); /* Adjust row height as needed */
+    grid-template-rows: repeat(auto-fill, minmax(400px, 1fr)); /* Adjust row height as needed */
     row-gap: 30px;
     background-color: transparent;
   }

@@ -1,72 +1,85 @@
-
-
-.modal{
-    display: flex;
-    position: fixed;
-    height: 90vh;
-    width: 50%;
-    bottom: 20px;
-    background-color: var(--secondary);
-    z-index: 10000;
-    color: var(--text);
-    border: none;
+.modal {
+  display: flex;
+  position: fixed;
+  height: 600px;
+  width: 90%;
+  bottom: 15%;
+  background-color: var(--background);
+  z-index: 10000;
+  color: var(--text);
+  border: none;
 }
 
-.modal-content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-.modal-content .form-show{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+.modal-content .form-show {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-.modal-content .form-hide{
-    display: none;
+.modal-content .form-hide {
+  display: none;
 }
 
-.container-modal{
-    width: 90%;
-    height: 40px;
+.container-modal {
+  width: 90%;
+  height: 40px;
 }
 
-.container-modal  input, select {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: 1px var(--text) solid;
-    background-color: var(--background);
-    color: var(--text);
-    padding: 10px;
+.container-modal input,
+select {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px var(--text) solid;
+  background-color: var(--background);
+  color: var(--text);
+  padding: 10px;
 }
 
-.container-modal  input{
-    outline: none;
-    background-color: var(--background);
-    color: var(--text);
-    border: 1px var(--text) solid;
-    padding: 10px;
+.container-modal input {
+  outline: none;
+  background-color: var(--background);
+  color: var(--text);
+  border: 1px var(--text) solid;
+  padding: 10px;
 }
 
-.buy-now-btn{
+.buy-now-btn {
     background-color: transparent;
     color: var(--text);
     height: 30px;
-    width: 150px;
+    width: 110px;
     border: 1px var(--text) solid;
 }
 
-.buy-now-btn:hover{
-    background-color: var(--text);
-    color: var(--secondary);
-    transition-duration: .2s;
+.buy-now-btn:hover {
+  background-color: var(--text);
+  color: var(--secondary);
+  transition-duration: 0.2s;
 }
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
+
+.buttons-actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+}
+

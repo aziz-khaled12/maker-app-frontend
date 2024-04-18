@@ -72,7 +72,7 @@
    width: 65%;
    height: 60px;
    padding: 10px;
-   border: 1px solid navajowhite;
+   border: 1px solid var(--primary);
    background-color: transparent;
    border-radius: 5px;
    outline: none;
@@ -126,7 +126,7 @@
    padding: 10px;
    font-size: 1em;
    background-color: transparent;
-   border: 1px solid white;
+   border: 1px solid var(--primary);
  }
 
  .color-circles {
@@ -175,7 +175,7 @@
   justify-content: flex-start;
   height: fit-content;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid var(--primary);
   background-color: transparent;
   border-radius: 5px;
   outline: none;
@@ -188,14 +188,15 @@
   width: 0;
   height: 0;
  }
- .big-add-container form .photos-label button{
+ .big-add-container form .photos-label button {
   width: 208px;
   height: 208px;
-  background-color: #ccc;
+  background-color: var(--background);
   color: black;
   transition-duration: .2s;
-  border: 1px black solid;
- }
+  border: none;
+  box-shadow: 0px 0px 3px 1px;
+}
 
  .preview-image {
    width: 208px;
@@ -224,7 +225,7 @@
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  border: 1px solid navajowhite;
+  border: 1px solid var(--primary);
   transition-duration: .2s;
  }
 
@@ -233,19 +234,19 @@
   color: black;
  }
  .add-btn{
-  margin-top: 60px;
-  width: 30%;
-  height: 60px;
-  background-color: transparent;
-  border: 1px solid navajowhite;
-  color: white;
+  width: 100px;
+  height: 40px;
+  background-color: var(--primary);
+  border: none;
+  color: var(--background);
   transition-duration: .2s;
+  border-radius: 6px;
  }
+ 
 
  .big-add-container form .photos-label button:hover{
-  background-color: transparent;
-  border: 1px  solid white;
-  color: white;
+  background-color: var(--primary);
+  color: var(--background);
  }
  .add-btn:hover{
   background-color: navajowhite;
@@ -267,7 +268,10 @@
   justify-content: space-between;
   height: fit-content;
   flex-direction: column;
-  width: 16.6%;
+  width: 200px;
+  font-size: 12px;
+  gap: 10px;
+  padding: 30px;
  }
 
 
@@ -321,3 +325,187 @@
   opacity: .2;
   background-color: navajowhite;
  }
+
+
+ @media (max-width: 600px) {
+  .big-add-container form {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.big-add-container form .add-datails {
+  width: 100%;
+  min-height: 150vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border: 1px var(--primary) solid;
+  padding: 20px;
+  margin: 20px;
+}
+.big-add-container form .add-datails .text-inside-label {
+  display: flex;
+  flex-direction: column;
+  font-size: .9em;
+  width: 30%;
+}
+.big-add-container form .add-datails .text-inside-label span:first-child {
+  display: flex;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.big-add-container form .add-datails .text-inside-label span {
+  display: none;
+  flex-direction: column;
+  font-size: .9em;
+  width: 100%;
+}
+
+.big-add-container form .category-label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 20px;
+}
+.big-add-container form .category-label ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.drop-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  flex-direction: row;
+  width: auto;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.big-add-container form .category-label ul li {
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid var(--primary);
+  transition-duration: .2s;
+}
+
+  .big-add-container form label {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.big-add-container form .add-datails .text-inside-label span:first-child {
+  display: flex;
+  font-size: 17px;
+  font-weight: bold;
+}
+.big-add-container form .add-datails .theInput {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1em;
+}
+
+.big-add-container form label textarea {
+  width: 100%;
+  height: 200px;
+  outline: none;
+  padding: 10px;
+  font-size: 1em;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+}
+
+.big-add-container form .photos-label {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  font-size: 1em;
+  gap: 10px;
+}
+
+.big-add-container form .color-label {
+  height: 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.select-div {
+  width: 100%;
+}
+
+.checkbox-div {
+  width: 30%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-disabled {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  font-size: 1em;
+  border: #ccc 1px solid;
+  opacity: .3;
+}
+
+.big-add-container{
+  margin: 0;
+}
+
+.big-add-container form .add-datails .text-inside-label{
+  margin-bottom: 20px ;
+}
+
+.big-add-container form .add-datails{
+  min-height: 900px;
+}
+
+ }
+ 
