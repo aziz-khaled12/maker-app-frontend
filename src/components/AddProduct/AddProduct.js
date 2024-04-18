@@ -300,7 +300,6 @@ const ProductAdd = () => {
       });
     }
 
-    
     productData.selectedSizes.forEach((sizes) => {
       formData.append("sizes", sizes);
     });
@@ -569,14 +568,6 @@ const ProductAdd = () => {
               </div>
             </div>
             <div className="add-datails">
-              <span className="text-inside-label">
-                <span>Title *</span>
-                <span>
-                  Include keywords that buyers would use to search for your
-                  item.
-                </span>
-              </span>
-
               <label className="color-label">
                 <span className="text-inside-label">
                   <span>Colors *</span>

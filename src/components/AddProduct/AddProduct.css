@@ -268,10 +268,10 @@
   justify-content: space-between;
   height: fit-content;
   flex-direction: column;
-  width: 200px;
+  width: 110px;
   font-size: 12px;
   gap: 10px;
-  padding: 30px;
+  padding: 10px;
  }
 
 
@@ -327,7 +327,7 @@
  }
 
 
- @media (max-width: 600px) {
+ @media (max-width: 655px) {
   .big-add-container form {
     position: relative;
     height: 80%;
