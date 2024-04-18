@@ -15,6 +15,7 @@
     text-align: center;
     opacity: 0.75;
     font-size: 16px;
+    color: var(--text);
 }
 
 .vendor-image-container {

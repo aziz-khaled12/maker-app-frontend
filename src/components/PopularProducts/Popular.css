@@ -39,3 +39,9 @@
   .see-more-btn:hover{
     color: var(--primary);
   }
+
+  @media (max-width: 600px) {
+    .see-more-btn{
+      font-size: 12px;
+    }
+  }

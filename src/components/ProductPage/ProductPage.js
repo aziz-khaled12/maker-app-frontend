@@ -218,8 +218,6 @@ const ProductPage = () => {
           <div className='suggestions'>
             <div className='top'>
               <h2>Related products:</h2>
-              <Link to className=''>Explore more</Link>
-
             </div>
 
             <div className="grid-container-1">

@@ -198,13 +198,6 @@ main .details .info-container .buy-btn:hover{
     transition-duration: .2s;
 }
 
-main .suggestions .top{
-    color: white;
-}
-main .suggestions .top a{
-    color: white;
-}
-
 .stars{
     width: 40%;
     display: flex;
