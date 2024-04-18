@@ -79,3 +79,10 @@
 .profile-list li:hover{
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .lil-profile{
+    height: 30px;
+    width: 30px;
+}
+}
