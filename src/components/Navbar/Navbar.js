@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileDrop from '../ProfileDrop/ProfileDrop';
 import CategorieList from '../CategotyLIst/CategorieList';
 import { FiMenu } from "react-icons/fi";
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const Navbar = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
