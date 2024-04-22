@@ -1,215 +1,201 @@
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .Navbar {
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: 100%;
-    background-color: var(--background);
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    transition-duration: .2s;
-    box-shadow: black 1px 0px 5px 1px;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  background-color: var(--background);
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition-duration: 0.2s;
+  box-shadow: black 1px 0px 5px 1px;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 80%;
 }
 
 .logo {
-    display: flex;
-    font-weight: 500;
-    height: 60px;
-    font-size: 20px;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary);
+  display: flex;
+  font-weight: 500;
+  height: 60px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
 }
 
 .NavMenu {
-    display: flex;
-    height: 60px;
-    width: 400px;
-    font-size: 18px;
-    align-items: center;
-    justify-content: space-evenly;
+  display: flex;
+  height: 60px;
+  width: 400px;
+  font-size: 18px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .NavMenu a {
-    color: var(--text);
-    font-weight: bold;
-    text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .NavMenu a:hover {
-    color: var(--primary);
-    transition-duration: .2s;
+  color: var(--primary);
+  transition-duration: 0.2s;
+}
+
+.logo-container {
+  display: flex;
+  width: 60px;
+  height: 60px;
+}
+
+.logo-container img {
+  width: 100%;
+  height: 100%;
 }
 
 .Search {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text);
-    width: 70%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  width: 70%;
 }
 
 .active-search-space {
-    background-color: #f9f9f9;
-    height: 50px;
-    width: 100%;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    padding: 20px;
-    color: black;
-    font-size: large;
-    font-weight: 500;
-    transition-duration: .2s;
+  background-color: #f9f9f9;
+  height: 50px;
+  width: 100%;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  padding: 20px;
+  color: black;
+  font-size: large;
+  font-weight: 500;
+  transition-duration: 0.2s;
 }
 
 .search-space {
-    background-color: var(--background);
-    height: 50px;
-    width: 500px;
-    border-radius: 30px;
-    border: 2px solid var(--primary);
-    outline: none;
-    padding: 20px;
-    color: black;
-    font-size: 16px;
-    font-weight: 300;
+  background-color: var(--background);
+  height: 50px;
+  width: 500px;
+  border-radius: 30px;
+  border: 2px solid var(--primary);
+  outline: none;
+  padding: 20px;
+  color: black;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .Sign {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
 }
 
-
 .log {
-    border: none;
-    background-color: transparent;
-    color: var(--text);
-    font-size: 18px;
-    font-weight: 400;
+  border: none;
+  background-color: transparent;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .log:hover {
-    color: var(--primary);
-    transition-duration: .2s;
+  color: var(--primary);
+  transition-duration: 0.2s;
 }
 
 .log a:hover {
-    color: var(--primary);
-    transition-duration: .2s;
+  color: var(--primary);
+  transition-duration: 0.2s;
 }
 
-
-
 .profile-menu {
-    height: 200px;
-    width: 100%;
-    background-color: black;
+  height: 200px;
+  width: 100%;
+  background-color: black;
 }
 
 .search-icon {
-    position: absolute;
-    right: 20px;
-    font-size: larger;
-    cursor: pointer;
+  position: absolute;
+  right: 20px;
+  font-size: larger;
+  cursor: pointer;
 }
 
 .search-space,
 .active-search-space {
-    transition: width 0.5s, padding 0.5s;
+  transition: width 0.5s, padding 0.5s;
 }
 
 .Search.active .search-space {
-    width: 100%;
-    font-weight: 300;
+  width: 100%;
+  font-weight: 300;
 }
 
 .prof-drop-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: fit-content;
-    width: 10%;
-}
-
-@media (max-width: 600px) {
-
-    .Search{
-        width: 200px;
-    }
-    .search-icon{
-        font-size: 12px;
-        right: 10px;
-    }
-    .container{
-        width: 90%;
-    }
-    .logo{
-        font-size: 12px;
-    }
-    .Sign{
-        width: 70px;
-    }
-
-    .log{
-        font-size: 10px;
-    }
-
-    .search-space{
-        width: 130px;
-        height: 25px;
-        font-size: 12px;
-    }
-    
-}
-
-@media (max-width: 600px) {
-
-    .search-icon{
-        font-size: 12px;
-        right: 10px;
-    }
-    .container{
-        width: 90%;
-    }
-    .logo{
-        font-size: 16px;
-    }
-    .Sign{
-        width: 70px;
-    }
-
-    .log{
-        font-size: 10px;
-    }
-
-    .search-space{
-        width: 130px;
-        height: 25px;
-        font-size: 12px;
-    }
-    
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: fit-content;
+  width: 10%;
 }
 
 @media (min-width: 600px) and (max-width: 1070px) {
-    .search-space{
-        width: 400px;
-    }
+  .search-space {
+    width: 400px;
+  }
+}
+
+@media (max-width: 900px) {
+  .search-space {
+    width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-icon {
+    font-size: 12px;
+    right: 10px;
+  }
+  .container {
+    width: 90%;
+  }
+  .logo {
+    font-size: 16px;
+  }
+  .Sign {
+    width: 70px;
+  }
+
+  .log {
+    font-size: 10px;
+  }
+
+  .search-space {
+    width: 130px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .logo-container {
+    width: 40px;
+    height: 40px;
+  }
 }

@@ -9,12 +9,11 @@
 }
 
 .Hero-container {
-  display: grid;
+  display: flex;
   width: 80%;
   margin-left: 100px;
   margin-right: 100px;
-  height: 60vh;
-  grid-template-columns: repeat(2, 1fr);
+  height: 400px;
   justify-items: center;
   align-items: center;
 }
@@ -56,6 +55,7 @@
   background-color: #f1f1f1;
 }
 
+
 @media (max-width: 600px) {
   .Hero-left {
     margin: 0;
@@ -76,6 +76,7 @@
     color: var(--primary);
     margin: 0;
     text-shadow: 1px 1px 1px black;
+    font-size: 40px;
   }
   .Hero-left h2 {
     color: var(--text);
@@ -97,3 +98,4 @@
     height: 500px;
   }
 }
+

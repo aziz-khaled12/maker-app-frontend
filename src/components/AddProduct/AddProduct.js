@@ -94,58 +94,88 @@ const predefinedColors = [
   "forestgreen",
 ].map((name, index) => ({ name, id: index }));
 
-const initialCategoryList = [
+const categoryList = [
   "Men",
   "Women",
   "Gifts",
   "Decore",
   "Accessories",
   "Mats",
-].map((name) => ({ name, selected: false }));
+  "embroidery",
+  "Aprons",
+  "Kids",
+  "Health & Beauty",
+  "Bags & Purses",
+  "Toys",
+  "Craft Supplies & Tools",
+  "Occasions Clothing",
+  "Art",
+];
+
+const initialCategoryList = categoryList.map((name) => ({
+  name,
+  selected: false,
+}));
 
 const initialSubCategories = {
-  Men: [
-    { name: "Shirts", selected: false },
-    { name: "Pants", selected: false },
-    { name: "Winter", selected: false },
-    { name: "Pijamas", selected: false },
-    { name: "Sports", selected: false },
-  ],
+  Men: ["Men Shirts", "Men Pants", "Winter Clothes"].map((name) => ({
+    name,
+    selected: false,
+  })),
   Women: [
-    { name: "Shirts", selected: false },
-    { name: "Pants", selected: false },
-    { name: "Hijab", selected: false },
-    { name: "Pijamas", selected: false },
-    { name: "Sports", selected: false },
-  ],
-  Jeans: [
-    { name: "triko", selected: false },
-    { name: "alskj", selected: false },
-    { name: "alkjsf", selected: false },
-    { name: "alskfj", selected: false },
-  ],
-  Gifts: [
-    { name: "For Him", selected: false },
-    { name: "For Her", selected: false },
-    { name: "For kids", selected: false },
-    { name: "Official", selected: false },
-  ],
-  Decore: [
-    { name: "House", selected: false },
-    { name: "Office", selected: false },
-    { name: "Other", selected: false },
-  ],
-  Accessories: [
-    { name: "Phone & PC", selected: false },
-    { name: "Keys", selected: false },
-    { name: "Cars", selected: false },
-    { name: "Other", selected: false },
-  ],
-  Mats: [
-    { name: "Mats", selected: false },
-    { name: "Curtains", selected: false },
-    { name: "Carpets", selected: false },
-  ],
+    "Women Shirts",
+    "Women Pants",
+    "Hijab",
+    "Dresses",
+    "Pijamas",
+    "Sports",
+    "Prayer Sets & Rugs",
+  ].map((name) => ({ name, selected: false })),
+  Gifts: ["For Him", "For Her", "For kids", "Official"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  Decore: ["House", "Office", "Other"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  Accessories: ["Phone & PC", "Keys", "Cars", "Other"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  Mats: ["Mats", "Curtains", "Carpets"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  Aprons: ["For Kitchen", "For work", "For school"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  embroidery: [].map((name) => ({ name, selected: false })),
+  Kids: [].map((name) => ({ name, selected: false })),
+  "Health & Beauty": [
+    "Makeup",
+    "Self Care",
+    "Perfumes",
+    "Oils",
+    "Natural blends",
+    "Care",
+  ].map((name) => ({ name, selected: false })),
+  "Bags & Purses": ["Bags", "Purses"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  Toys: [].map((name) => ({ name, selected: false })),
+  "Craft Supplies & Tools": ["House", "Office", "Other"].map((name) => ({
+    name,
+    selected: false,
+  })),
+  "Occasions Clothing": ["For Women", "Circumcision", "Other Occasions"].map(
+    (name) => ({ name, selected: false })
+  ),
+  Art: ["Paint", "Sculpture", "Glass Art", "Ceramic Art", "Wood Art"].map(
+    (name) => ({ name, selected: false })
+  ),
 };
 
 const predefinedLetters = ["XS", "S", "M", "L", "XL", "XXL"].map(
@@ -280,7 +310,6 @@ const ProductAdd = () => {
     formData.append("price", productData.price);
     formData.append("name", productData.name);
     formData.append("description", productData.description);
-
     productData.selectedColors.forEach((color) => {
       formData.append("colors", color);
     });
