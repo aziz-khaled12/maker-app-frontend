@@ -6,31 +6,36 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "https://maker-app-backend.vercel.app/api/login",
         { email, password }
       );
-      console.log("User logged in:", response.data);
+      
+      if(response.status === 200){
+console.log("User logged in:", response.data);
       const token = response.data.token;
       localStorage.setItem("token", token);
       const decodedToken = JSON.parse(atob(token.split(".")[1]));
       localStorage.setItem("userId", decodedToken.userId);
 
-      navigate("/", { replace: true }); // Navigate to home, replace current history
+      navigate("/", { replace: true });
+      }
+       // Navigate to home, replace current history
     } catch (error) {
       console.error("Error logging in:", error);
       setError("Invalid email or password. Please try again.");
     }
   };
+
   return (
     <>
       <div className="big-wrapper-login">
@@ -52,31 +57,33 @@ const Login = () => {
                 </button>
               </div>
             </div>
-            <div className="login-with-email">
-              <div className="head">
-                <div className="line"></div>
-                <div> Log in with Email </div>
-                <div className="line"></div>
+            <form onSubmit={handleLogin}> {/* Form element to handle submission */}
+              <div className="login-with-email">
+                <div className="head">
+                  <div className="line"></div>
+                  <div> Log in with Email </div>
+                  <div className="line"></div>
+                </div>
+                <div className="input-container">
+                  <input
+                    type="string"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                  ></input>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                  ></input>
+                </div>
+                {error && <p className="error-message">{error}</p>}
               </div>
-              <div className="input-container">
-                <input
-                  type="string"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
-                ></input>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                ></input>
-              </div>
-              {error && <p className="error-message">{error}</p>}
-            </div>
-            <button type="submit" className="submit-btn" onClick={handleLogin}>
-              Log in
-            </button>
+              <button type="submit" className="submit-btn">
+                Log in
+              </button>
+            </form>
           </div>
         </div>
       </div>
