@@ -1,195 +1,201 @@
-
-
-.big-wrapper-signup{
-    display: flex;
-    min-height: 1000px;
-    width: 100%;
-    background-color: transparent;
-    align-items: flex-start;
-    
+.big-wrapper-signup {
+  display: flex;
+  min-height: 1000px;
+  width: 100%;
+  background-color: transparent;
+  align-items: flex-start;
 }
 
-.big-container-signup{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+.big-container-signup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-.sign-up-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 900px;
-    width: 60%;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: black 0px 0px 4px 1px;
+.sign-up-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 700px;
+  width: 60%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: black 0px 0px 4px 1px;
 }
-.sign-up-container header{
-    color: var(--text);
-    font-size: 36px;
+.sign-up-container header {
+  color: var(--text);
+  font-size: 36px;
 }
-.sign-up-container .signup-with-socials{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 15%;
-    width: 100%;
-    color: var(--text);
+.sign-up-container .signup-with-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  color: var(--text);
 }
-.sign-up-container .signup-with-socials .head{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 18px;
-    
+.sign-up-container .signup-with-socials .head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
 }
-.sign-up-container .signup-with-socials .head .line{
-    height: 2px;
-    width: 35%;
-    background-color: var(--primary);
+.sign-up-container .signup-with-socials .head .line {
+  height: 2px;
+  width: 35%;
+  background-color: var(--primary);
 }
 
-.sign-up-container .signup-with-socials .btns{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.sign-up-container .signup-with-socials .btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .sign-up-container .signup-with-socials .btns .social-btn {
-    background-color: transparent;
-    color: var(--text);
-    border-radius: 12px;
-    border: 1px var(--primary) solid;
-    width: 49%;
-    height: 40px;
-}
-
-.sign-up-container .signup-with-email{
-    display: flex;
-    flex-direction: column;
+  background-color: transparent;
+  color: var(--text);
+  border-radius: 12px;
+  border: 1px var(--primary) solid;
+  width: 49%;
+  height: 40px;
+  display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 40%;
-    width: 100%;
-}
-.sign-up-container .signup-with-email .head{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 18px;
-    color: var(--text);
+    justify-content: center;
+    gap: 10px;
 }
 
-.sign-up-container .signup-with-email .head .line{
-    height: 2px;
-    width: 35%;
-    background-color: var(--primary);
-
+.sign-up-container .signup-with-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 450px;
+  width: 100%;
+}
+.sign-up-container .signup-with-email .head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  color: var(--text);
 }
 
-.sign-up-container .signup-with-email .signup-input-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 80%;
-    width: 100%;
-
+.sign-up-container .signup-with-email .head .line {
+  height: 2px;
+  width: 25%;
+  background-color: var(--primary);
 }
-.sign-up-container .signup-with-email .signup-input-container input{
-    background-color: transparent;
-    border: 1px var(--primary) solid;
-    border-radius: 4px;
-    width: 100%;
-    height: 48px;
-    color: var(--text);
-    font-size: 16px;
-    padding: 10px;
+
+.sign-up-container .signup-with-email .signup-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 66%;
+  width: 100%;
+}
+.sign-up-container .signup-with-email .signup-input-container input {
+  background-color: transparent;
+  border: 1px var(--primary) solid;
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  color: var(--text);
+  font-size: 16px;
+  padding: 10px;
+}
+
+.signup-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  height: 650px;
 }
 
 .submit-btn {
-    height: auto;
-    width: auto;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary);
-    border: none;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px 50px;
-    box-shadow: 0px 0px 4px 1px;
+  height: auto;
+  width: auto;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 50px;
+  box-shadow: 0px 0px 4px 1px;
 }
-.submit-btn:hover{
-    background-color: var(--text);
-    color: var(--primary);
-    transition-duration: .2s;
+.submit-btn:hover {
+  background-color: var(--text);
+  color: var(--primary);
+  transition-duration: 0.2s;
 }
-.sign-up-container .signup-with-socials .btns .social-btn:hover{
-    background-color: var(--text);
-    color: var(--primary);
-    transition-duration: .2s;
-}
-
-button{
-    cursor: pointer;
+.sign-up-container .signup-with-socials .btns .social-btn:hover {
+  background-color: var(--text);
+  color: var(--primary);
+  transition-duration: 0.2s;
 }
 
-.Role{
-    display: flex;
-    background-color: transparent;
-    border: 1px var(--primary) solid;
-    border-radius: 4px;
-    width: 100%;
-    height: 48px;
-    color: var(--text);
-    font-size: 16px;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-.Role select{
-    width: 100%;
-    font-size: 16px;
-    height:100% ;
-    background-color: transparent;
-    border: none;
-    padding: 0;
+button {
+  cursor: pointer;
 }
 
-.selected{
-    display: none;
+.Role {
+  display: flex;
+  background-color: transparent;
+  border: 1px var(--primary) solid;
+  border-radius: 4px;
+  width: 100%;
+  height: 40px;
+  color: var(--text);
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.Role select {
+  width: 100%;
+  font-size: 16px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.selected {
+  display: none;
 }
 
 @media (max-width: 600px) {
-    
-    .sign-up-container .signup-with-socials .head {
-        font-size: 17px;
-    }
+  .sign-up-container .signup-with-socials .head {
+    font-size: 17px;
+  }
 
-    .sign-up-container .signup-with-socials .head .line {
-        height: 1px;
-        width: 20%;
-    }
-    .sign-up-container {
-        width: 90%;
-    }
+  .sign-up-container .signup-with-socials .head .line {
+    height: 1px;
+    width: 20%;
+  }
+  .sign-up-container {
+    width: 90%;
+  }
 
-    .sign-up-container .signup-with-email .head{
-        font-size: 17px;
-    }
-    .sign-up-container .signup-with-email .head .line{
-        height: 1px;
-        width: 20%;
-    }
+  .sign-up-container .signup-with-email .head {
+    font-size: 17px;
+  }
+  .sign-up-container .signup-with-email .head .line {
+    height: 1px;
+    width: 20%;
+  }
 }

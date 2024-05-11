@@ -1,10 +1,10 @@
 import React from "react";
 import "./Login.css";
+import axios from "axios";
+import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,17 +19,17 @@ const Login = () => {
         "https://maker-app-backend.vercel.app/api/login",
         { email, password }
       );
-      
-      if(response.status === 200){
-console.log("User logged in:", response.data);
-      const token = response.data.token;
-      localStorage.setItem("token", token);
-      const decodedToken = JSON.parse(atob(token.split(".")[1]));
-      localStorage.setItem("userId", decodedToken.userId);
 
-      navigate("/", { replace: true });
+      if (response.status === 200) {
+        console.log("User logged in:", response.data);
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        const decodedToken = JSON.parse(atob(token.split(".")[1]));
+        localStorage.setItem("userId", decodedToken.userId);
+
+        navigate("/", { replace: true });
       }
-       // Navigate to home, replace current history
+      // Navigate to home, replace current history
     } catch (error) {
       console.error("Error logging in:", error);
       setError("Invalid email or password. Please try again.");
@@ -57,13 +57,15 @@ console.log("User logged in:", response.data);
                 </button>
               </div>
             </div>
-            <form onSubmit={handleLogin}> {/* Form element to handle submission */}
-              <div className="login-with-email">
+
+            <div className="login-with-email">
+              <form onSubmit={handleLogin} className="login-form">
                 <div className="head">
                   <div className="line"></div>
                   <div> Log in with Email </div>
                   <div className="line"></div>
                 </div>
+
                 <div className="input-container">
                   <input
                     type="string"
@@ -79,11 +81,11 @@ console.log("User logged in:", response.data);
                   ></input>
                 </div>
                 {error && <p className="error-message">{error}</p>}
-              </div>
-              <button type="submit" className="submit-btn">
-                Log in
-              </button>
-            </form>
+                <button type="submit" className="submit-btn">
+                  Log in
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

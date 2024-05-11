@@ -37,6 +37,13 @@
   height: 40px;
 }
 
+.close-btn{
+  position: absolute;
+  margin: 15px;
+  font-size: 20px;
+
+}
+
 .container-modal input,
 select {
   width: 100%;
@@ -83,3 +90,17 @@ select {
     width: 240px;
 }
 
+
+@media (max-width: 600px) {
+  .modal {
+    display: flex;
+    position: fixed;
+    height: 500px;
+    width: 90%;
+    bottom: 5%;
+    background-color: var(--background);
+    z-index: 10000;
+    color: var(--text);
+    border: none;
+}
+}

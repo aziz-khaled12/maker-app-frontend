@@ -2,6 +2,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProduct.css";
 import Select from "react-dropdown-select";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const predefinedColors = [
   "red",
@@ -201,6 +216,7 @@ const ProductAdd = () => {
     categories: [],
   });
 
+  const [open, setOpen] = useState(false);
   const [previewImages, setPreviewImages] = useState([]);
   const [letters, setLetters] = useState(false);
   const [numbers, setNumbers] = useState(false);
@@ -209,9 +225,8 @@ const ProductAdd = () => {
   const [selectedNumbers, setSellectedNumbers] = useState([]);
   const [selctedCutom, setSelectedCustom] = useState([]);
   const [categoryList, setCategoryList] = useState(initialCategoryList);
-  const [subCategoriesToShow, setSubCategoriesToShow] =
-    useState(initialSubCategories);
-
+  const [subCategoriesToShow, setSubCategoriesToShow] =  useState(initialSubCategories);
+  const handleClose = () => setOpen(false);
   const handleButtonClick = () => {
     document.getElementById("file-upload").click();
   };
@@ -305,7 +320,6 @@ const ProductAdd = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
     formData.append("price", productData.price);
     formData.append("name", productData.name);
@@ -340,7 +354,6 @@ const ProductAdd = () => {
     for (let i = 0; i < productData.photos.length; i++) {
       formData.append("photos", productData.photos[i]);
     }
-    // Include the seller's ID from the token
     const token = localStorage.getItem("token");
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     formData.append("sellerId", decodedToken.userId);
@@ -358,7 +371,10 @@ const ProductAdd = () => {
         }
       );
 
+        
+   
       console.log("Product added successfully:", response.data);
+      setOpen(true)
     } catch (error) {
       console.error("Error adding product:", error);
     }
@@ -462,6 +478,7 @@ const ProductAdd = () => {
                 <input
                   className="theInput"
                   type="text"
+                  required
                   name="price"
                   value={productData.price}
                   onChange={handleInputChange}
@@ -481,6 +498,7 @@ const ProductAdd = () => {
                   className="theInput"
                   type="text"
                   name="name"
+                  required
                   value={productData.name}
                   onChange={handleInputChange}
                   placeholder="Product name"
@@ -563,6 +581,7 @@ const ProductAdd = () => {
                   <input
                     type="file"
                     name="photos"
+                    required
                     onChange={handleFileChange}
                     multiple
                     id="file-upload"
@@ -642,6 +661,7 @@ const ProductAdd = () => {
                   className="theInput"
                   type="text"
                   name="materials"
+                  required
                   value={productData.materials}
                   onChange={handleInputChange}
                   placeholder="Enter materials (separated by comma, semicolon, or newline)..."
@@ -756,6 +776,23 @@ const ProductAdd = () => {
         </div>
         <div className="big-preview-container"></div>
       </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
+
     </>
   );
 };
