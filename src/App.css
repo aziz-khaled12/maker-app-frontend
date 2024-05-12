@@ -10,11 +10,6 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow-y: overlay;
-  /* Overlay scrollbar */
-}
-
 :root {
   --text: #023045;
   --background: #f7f7f7;
@@ -38,10 +33,9 @@ body {
 }
 
 .routes-container {
-  margin-top: 150px;
   width: 100%;
   margin-bottom: 50px;
-  min-height: 40vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

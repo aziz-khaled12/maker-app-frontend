@@ -7,7 +7,7 @@
     width: 85%;
     position: relative;
     flex-wrap: wrap;
-
+    margin: 60px 0px;
 }
 
 .huge-profile-container .big-profile-container{
@@ -99,6 +99,7 @@
     }
     .huge-profile-container{
         flex-direction: column;
+        height: 135vh;
     }
     .huge-profile-container .big-profile-container{
         width: 100%;

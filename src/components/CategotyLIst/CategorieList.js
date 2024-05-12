@@ -100,7 +100,7 @@ const CategorieList = () => {
           <div className="cats-inner-container">
             {categoryList.map((category) => {
               return (
-                <SwiperSlide style={{ width: "auto" }}>
+                <SwiperSlide style={{ width: "auto" }} key={category}>
                   <DropList
                     key={category}
                     title={category}

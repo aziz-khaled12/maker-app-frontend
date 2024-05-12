@@ -66,7 +66,9 @@ const VendorPage = () => {
   };
 
 
-  console.log(originalResults);
+  useEffect(() => {
+    window.scroll(0, 0);
+  });
 
   return (
     <>

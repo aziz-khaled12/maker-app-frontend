@@ -3,7 +3,7 @@ a {
 }
 
 .Navbar {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   height: auto;

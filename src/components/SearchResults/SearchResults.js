@@ -86,6 +86,10 @@ const SearchResults = () => {
     handleSorting();
   }, [query, current]);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  });
+
   return (
     <>
       <div className="search-results">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
@@ -18,11 +19,17 @@ import Dashboard from './components/sellerInterface/Dashboard';
 
 function App() {
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  });
+
   return (
     <>
-      
+       <Navbar />
       <div className='huge-wrapper'>
-        <Navbar />
+        
+       
+      
         <div className="routes-container">
         <Routes>
           <Route path='/' element={<Home />} />

@@ -15,6 +15,10 @@
   height: 100vh;
 }
 
+.bio{
+  text-align: center;
+}
+
 .huge-vendor-container .top-container-1 .cover-photo {
   background-color: var(--background);
   width: 100%;
