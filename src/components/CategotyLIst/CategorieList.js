@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+
 import "./CategorieList.css";
 const CategorieList = () => {
   const categoryList = [
@@ -90,7 +91,7 @@ const CategorieList = () => {
   return (
     <>
       <div className="category-container">
-        <Swiper
+         <Swiper 
         navigation={true}
           breakpoints={breakpoints}
           modules={[Navigation]}
@@ -109,7 +110,8 @@ const CategorieList = () => {
               );
             })}
           </div>
-        </Swiper>
+        </Swiper> 
+
       </div>
     </>
   );

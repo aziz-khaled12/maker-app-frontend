@@ -3,7 +3,7 @@
   position: fixed;
   height: 600px;
   width: 90%;
-  bottom: 15%;
+  bottom: 1%;
   background-color: var(--background);
   z-index: 10000;
   color: var(--text);

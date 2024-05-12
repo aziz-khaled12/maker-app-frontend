@@ -16,6 +16,7 @@ const Hero = () => {
               right size and quality
             </h2>
             <ButtonLink to="/Discover" className="btn">
+              
               <FaCut></FaCut>Discover
             </ButtonLink>
           </div>

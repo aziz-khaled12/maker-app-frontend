@@ -1,8 +1,11 @@
 .dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2px;
+  width: 90%;
   }
   
   .title {
@@ -18,9 +21,7 @@
 
   
   .list {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: relative;
     width: 100%;
     z-index: 1;
     background-color: var(--background);

@@ -17,7 +17,8 @@ const DropList = ({ title, items }) => {
     <>
       <div className="dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <Link to={`/products/categories/${title}`}><div className="title"> {title} </div></Link>
-        {isOpen && (
+       
+          {isOpen && (
           <ul className="list" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {items.map((item, index) => (
               <Link to={`/products/categories/${item}`} key={index}><li >  {item}  </li></Link>

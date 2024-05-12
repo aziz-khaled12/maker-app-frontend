@@ -2,20 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProduct.css";
 import Select from "react-dropdown-select";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import Box from "@mui/material/Box";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import Modal from "@mui/material/Modal";
+import {Link} from "react-router-dom"
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  height: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+  p: 0,
 };
 
 const predefinedColors = [
@@ -225,8 +227,10 @@ const ProductAdd = () => {
   const [selectedNumbers, setSellectedNumbers] = useState([]);
   const [selctedCutom, setSelectedCustom] = useState([]);
   const [categoryList, setCategoryList] = useState(initialCategoryList);
-  const [subCategoriesToShow, setSubCategoriesToShow] =  useState(initialSubCategories);
+  const [subCategoriesToShow, setSubCategoriesToShow] =
+    useState(initialSubCategories);
   const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
   const handleButtonClick = () => {
     document.getElementById("file-upload").click();
   };
@@ -347,7 +351,6 @@ const ProductAdd = () => {
       formData.append("sizes", sizes);
     });
 
-    console.log(productData.selectedSizes);
     productData.categories.forEach((categories) => {
       formData.append("categories", categories);
     });
@@ -358,7 +361,6 @@ const ProductAdd = () => {
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     formData.append("sellerId", decodedToken.userId);
 
-    console.log(productData);
     try {
       const response = await axios.post(
         "https://maker-app-backend.vercel.app/products",
@@ -371,10 +373,8 @@ const ProductAdd = () => {
         }
       );
 
-        
-   
       console.log("Product added successfully:", response.data);
-      setOpen(true)
+      setOpen(true);
     } catch (error) {
       console.error("Error adding product:", error);
     }
@@ -772,6 +772,9 @@ const ProductAdd = () => {
             <button type="submit" className="add-btn">
               Add Product
             </button>
+            <button className="add-btn" onClick={handleOpen}>
+              trigger
+            </button>
           </form>
         </div>
         <div className="big-preview-container"></div>
@@ -784,15 +787,22 @@ const ProductAdd = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <div className="success-container">
+            <div className="upper-suc">
+            <FaRegCircleCheck />
+            </div>
+            <div className="lower-suc">
+              <div className="suc-txt">
+                <h1>Great!</h1>
+                <p>Your Product has been created successfully.</p>
+              </div>
+              <Link className="suc-btn" to ="/">
+                      Go to the home page
+              </Link>
+            </div>
+          </div>
         </Box>
       </Modal>
-
     </>
   );
 };
