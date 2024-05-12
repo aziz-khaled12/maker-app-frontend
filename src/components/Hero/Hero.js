@@ -2,7 +2,7 @@ import React from "react";
 import "./Hero.css";
 import ButtonLink from "../Button/button";
 import { FaCut } from "react-icons/fa";
-import Image from "../../assets/maker-background4.jpg"
+import Image from "../../assets/maker-background2.png"
 
 
 const Hero = () => {
@@ -19,7 +19,7 @@ const smoothScroll = () =>{
     <>
       
       <div className="Back-ground" style={{backgroundImage: `url(${Image})`}}>
-        <div className="overlay-hero"></div>
+        {/* <div className="overlay-hero"></div> */}
         <div className="Hero-container">
           <div className="Hero-left">
             <h1>Make it as you like it</h1>

@@ -64,8 +64,8 @@ const VendorGrid = () => {
         className="mySwiper"
       >
         {sellers.length > 0 &&
-          sellers.slice(0, 16).map((seller) => (
-            <SwiperSlide style={{ width: "auto" }}>
+          sellers.slice(0, 16).map((seller, index) => (
+            <SwiperSlide style={{ width: "auto" }} key={index}>
               <Vendor key={seller._id} seller={seller} />
             </SwiperSlide>
           ))}

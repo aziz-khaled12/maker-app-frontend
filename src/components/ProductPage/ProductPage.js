@@ -10,16 +10,13 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import Modal from "@mui/material/Modal";
-import '../Modal/Modal.css'
+import "../Modal/Modal.css";
 // import Modal from "../Modal/Modal.js";
 import MyCard2 from "../MyCard2/Card.js";
 import { Link } from "react-router-dom";
 import useAlgeriaData from "../AlgeriaData/UseAlgeriaData";
 
 const ProductPage = () => {
-
-
-
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -33,7 +30,7 @@ const ProductPage = () => {
   const [isLoadinga, setIsLoading] = useState(true);
   const [next, setNext] = useState(false);
   const [currentWilaya, setCurrentWilaya] = useState("");
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { algeriaData, isLoading, error } = useAlgeriaData();
   const [sortedAlgeriaData, setSortedAlgeriaData] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState({
@@ -310,188 +307,177 @@ const ProductPage = () => {
                   onClose={handleModalClose}
                   onBuyNow={handleBuyNow}
                 /> */}
-
-                
               </div>
             </div>
             <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style} className="modal-box">
-                    <button className="close-btn" onClick={handleClose}>
-                      &times;
-                    </button>
-                    <div className="modal-content">
-                      <form className={!next ? "form-show" : "form-hide"}>
-                        <h2>Enter Your Informations</h2>
-                        {isLoading ? (
-                          <p>...</p>
-                        ) : error ? (
-                          <p>Error loading Algeria data: {error}</p>
-                        ) : (
-                          <>
-                            <div className="container-modal">
-                              <label
-                                htmlFor="wilaya"
-                                className="wilaya-label-modal"
-                              >
-                                wilaya:
-                              </label>
-                              <select
-                                id="wilaya"
-                                value={currentWilaya}
-                                onChange={handleWilayaChange}
-                              >
-                                <option value="">Select Wilaya</option>
-                                {sortedAlgeriaData.map((wilaya) => (
-                                  <option key={wilaya.name} value={wilaya.name}>
-                                    {wilaya.name}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            <div className="container-modal">
-                              <label
-                                htmlFor="city"
-                                className="city-label-modal"
-                              >
-                                city:
-                              </label>
-                              <select
-                                id="city"
-                                value={selectedOptions.commune}
-                                onChange={handleCityChange}
-                                disabled={!currentWilaya}
-                              >
-                                <option value="">Select Town</option>
-                                {filterDairas(currentWilaya).map((daira) => (
-                                  <option key={daira.name} value={daira.name}>
-                                    {daira.name}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            <div className="container-modal">
-                              <label
-                                htmlFor="address"
-                                className="address-label-modal"
-                              >
-                                address:
-                              </label>
-                              <input type="text" />
-                            </div>
-                            <div className="container-modal">
-                              <label
-                                htmlFor="phone"
-                                className="phone-label-modal"
-                              >
-                                phone number:
-                              </label>
-                              <input type="text" />
-                            </div>
-                            <button
-                              className="buy-now-btn"
-                              type="button"
-                              onClick={() => setNext(!next)}
-                            >
-                              Next
-                            </button>
-                          </>
-                        )}
-                      </form>
-                      <form className={next ? "form-show" : "form-hide"}>
-                        <h2>Select Options</h2>
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box className="modal-box">
+                <button className="close-btn" onClick={handleClose}>
+                  &times;
+                </button>
+                <div className="modal-content">
+                  <form className={!next ? "form-show" : "form-hide"}>
+                    <h2>Enter Your Informations</h2>
+                    {isLoading ? (
+                      <p>...</p>
+                    ) : error ? (
+                      <p>Error loading Algeria data: {error}</p>
+                    ) : (
+                      <>
                         <div className="container-modal">
-                          <label htmlFor="size" className="size-label-modal">
-                            Size:
+                          <label
+                            htmlFor="wilaya"
+                            className="wilaya-label-modal"
+                          >
+                            wilaya:
                           </label>
                           <select
-                            id="size"
-                            value={selectedOptions.size}
-                            onChange={handleSizeChange}
+                            id="wilaya"
+                            value={currentWilaya}
+                            onChange={handleWilayaChange}
                           >
-                            <option value="">Select Size</option>
-                            {productDetails.sizes.map((size, index) => (
-                              <option key={index} value={size}>
-                                {size}
+                            <option value="">Select Wilaya</option>
+                            {sortedAlgeriaData.map((wilaya) => (
+                              <option key={wilaya.name} value={wilaya.name}>
+                                {wilaya.name}
                               </option>
                             ))}
                           </select>
                         </div>
                         <div className="container-modal">
-                          <label htmlFor="color" className="color-label-modal">
-                            Color:
+                          <label htmlFor="city" className="city-label-modal">
+                            city:
                           </label>
                           <select
-                            id="color"
-                            value={selectedOptions.color}
-                            onChange={handleColorChange}
+                            id="city"
+                            value={selectedOptions.commune}
+                            onChange={handleCityChange}
+                            disabled={!currentWilaya}
                           >
-                            <option value="">Select Color</option>
-                            {productDetails.colors.map((color, index) => (
-                              <option key={index} value={color}>
-                                {color}
+                            <option value="">Select Town</option>
+                            {filterDairas(currentWilaya).map((daira) => (
+                              <option key={daira.name} value={daira.name}>
+                                {daira.name}
                               </option>
                             ))}
                           </select>
                         </div>
                         <div className="container-modal">
                           <label
-                            htmlFor="material"
-                            className="material-label-modal"
+                            htmlFor="address"
+                            className="address-label-modal"
                           >
-                            material:
+                            address:
                           </label>
-                          <select
-                            id="material"
-                            value={selectedOptions.material}
-                            onChange={handlematerialChange}
-                          >
-                            <option value="">Select material</option>
-                            {productDetails.materials.map((material, index) => (
-                              <option key={index} value={material}>
-                                {material}
-                              </option>
-                            ))}
-                          </select>
+                          <input type="text" />
                         </div>
                         <div className="container-modal">
-                          <label
-                            htmlFor="quantity"
-                            className="quantity-label-modal"
-                          >
-                            Quantity:
+                          <label htmlFor="phone" className="phone-label-modal">
+                            phone number:
                           </label>
-                          <input
-                            type="number"
-                            id="quantity"
-                            value={selectedOptions.quantity}
-                            min="1"
-                            onChange={handleQuantityChange}
-                          />
+                          <input type="text" />
                         </div>
-                        <div className="buttons-actions">
-                          <button
-                            className="buy-now-btn"
-                            onClick={handleOpen}
-                          >
-                            Buy Now
-                          </button>
-                          <button
-                            className="buy-now-btn"
-                            type="button"
-                            onClick={() => setNext(!next)}
-                          >
-                            Back
-                          </button>
-                        </div>
-                      </form>
+                        <button
+                          className="buy-now-btn"
+                          type="button"
+                          onClick={() => setNext(!next)}
+                        >
+                          Next
+                        </button>
+                      </>
+                    )}
+                  </form>
+                  <form className={next ? "form-show" : "form-hide"}>
+                    <h2>Select Options</h2>
+                    <div className="container-modal">
+                      <label htmlFor="size" className="size-label-modal">
+                        Size:
+                      </label>
+                      <select
+                        id="size"
+                        value={selectedOptions.size}
+                        onChange={handleSizeChange}
+                      >
+                        <option value="">Select Size</option>
+                        {productDetails.sizes.map((size, index) => (
+                          <option key={index} value={size}>
+                            {size}
+                          </option>
+                        ))}
+                      </select>
                     </div>
-                  </Box>
-                </Modal>
+                    <div className="container-modal">
+                      <label htmlFor="color" className="color-label-modal">
+                        Color:
+                      </label>
+                      <select
+                        id="color"
+                        value={selectedOptions.color}
+                        onChange={handleColorChange}
+                      >
+                        <option value="">Select Color</option>
+                        {productDetails.colors.map((color, index) => (
+                          <option key={index} value={color}>
+                            {color}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="container-modal">
+                      <label
+                        htmlFor="material"
+                        className="material-label-modal"
+                      >
+                        material:
+                      </label>
+                      <select
+                        id="material"
+                        value={selectedOptions.material}
+                        onChange={handlematerialChange}
+                      >
+                        <option value="">Select material</option>
+                        {productDetails.materials.map((material, index) => (
+                          <option key={index} value={material}>
+                            {material}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="container-modal">
+                      <label
+                        htmlFor="quantity"
+                        className="quantity-label-modal"
+                      >
+                        Quantity:
+                      </label>
+                      <input
+                        type="number"
+                        id="quantity"
+                        value={selectedOptions.quantity}
+                        min="1"
+                        onChange={handleQuantityChange}
+                      />
+                    </div>
+                    <div className="buttons-actions">
+                      <button className="buy-now-btn" onClick={handleOpen}>
+                        Buy Now
+                      </button>
+                      <button
+                        className="buy-now-btn"
+                        type="button"
+                        onClick={() => setNext(!next)}
+                      >
+                        Back
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </Box>
+            </Modal>
 
             <div className="suggestions">
               <div className="top">

@@ -1,7 +1,7 @@
 .Back-ground {
   position: relative;
   display: flex;
-  background-size: cover;
+  background-size: contain;
   height: 480px;
   width: 100%;
   margin: 0;
@@ -9,7 +9,7 @@
   justify-content: center;
 
 }
-.overlay-hero{
+/* .overlay-hero{
   height: 480px;
   width: 100%;
   z-index: 0;
@@ -17,7 +17,7 @@
   margin: 0;
   position: absolute;
   background-color: var(--background);
-}
+} */
 .Hero-container {
   display: flex;
   width: 80%;
