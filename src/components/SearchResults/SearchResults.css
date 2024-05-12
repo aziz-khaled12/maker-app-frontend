@@ -11,6 +11,13 @@
   align-items: center;
 }
 
+.search-results h2{
+  color: black;
+  text-align: center;
+  margin: 30px;
+  font-size: 20px;
+}
+
 .filter-area {
   width: 80%;
   height: 60px;

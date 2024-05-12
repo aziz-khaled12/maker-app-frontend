@@ -13,11 +13,19 @@ const predefinedColors = [
 const initialCategoryList = [
   "Men",
   "Women",
-  "Boys",
-  "Girls",
+  "Gifts",
+  "Decore",
+  "Accessories",
+  "Mats",
+  "embroidery",
+  "Aprons",
   "Kids",
-  "Asian people",
-  "Niggas",
+  "Health & Beauty",
+  "Bags & Purses",
+  "Toys",
+  "Craft Supplies & Tools",
+  "Occasions Clothing",
+  "Art",
 ];
 const priceRanges = [
   { label: "0 - 1000", value: "0-1000" },

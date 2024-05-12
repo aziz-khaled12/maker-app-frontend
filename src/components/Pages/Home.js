@@ -22,6 +22,7 @@ const Home = () => {
   return (
     <>
       <Hero></Hero>
+      <Slideshow />
       <Popular></Popular>
       
       <TopVendors></TopVendors>           

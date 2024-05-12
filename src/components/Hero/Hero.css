@@ -63,7 +63,7 @@
 @media (max-width: 780px) {
   .Hero-left h1 {
     color: var(--primary);
-    font-size: 52px;
+    font-size: 46px;
     text-shadow: 1px 1px 1px black;
   }
 }
