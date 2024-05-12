@@ -22,7 +22,7 @@ const Popular = () => {
   }, []);
   return (
     <>
-      <div className="popular-wrapper">
+      <div className="popular-wrapper" id='popular'>
         <div className='popular-container'>
           <div className='top'>
             <h2>Popular products:</h2>

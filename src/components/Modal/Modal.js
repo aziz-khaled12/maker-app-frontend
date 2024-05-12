@@ -202,7 +202,7 @@ const Modal = ({ productDetails, onClose, onBuyNow }) => {
             />
           </div>
           <div className="buttons-actions">
-            <button className="buy-now-btn" onClick={handleBuyNowClick}>
+            <button className="buy-now-btn" onClick={handleInBuyNowClick}>
               Buy Now
             </button>
             <button className="buy-now-btn" type="button" onClick={() => setNext(!next)}>

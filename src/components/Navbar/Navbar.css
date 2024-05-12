@@ -167,6 +167,15 @@ a {
   .search-space {
     width: 350px;
   }
+  .container{
+    width: 90%;
+  }
+}
+
+@media (max-width: 720px) {
+  .search-space{
+    width: 300px;
+  }
 }
 
 @media (max-width: 600px) {

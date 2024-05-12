@@ -63,7 +63,7 @@ const CategorieList = () => {
       spaceBetween: 0,
     },
     480: {
-      slidesPerView: 3,
+      slidesPerView: 2,
       spaceBetween: 0,
     },
     640: {
@@ -75,15 +75,15 @@ const CategorieList = () => {
       spaceBetween: 30,
     },
     1024: {
-      slidesPerView: 3,
+      slidesPerView: 5,
       spaceBetween: 30,
     },
     1200: {
-      slidesPerView: 3,
+      slidesPerView: 6,
       spaceBetween: 30,
     },
     1400: {
-      slidesPerView: 3,
+      slidesPerView: 6,
       spaceBetween: 30,
     },
   };

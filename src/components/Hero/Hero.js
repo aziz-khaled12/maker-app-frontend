@@ -2,10 +2,19 @@ import React from "react";
 import "./Hero.css";
 import ButtonLink from "../Button/button";
 import { FaCut } from "react-icons/fa";
-import Image from "../../assets/maker-background2.png"
+import Image from "../../assets/maker-background3.jpg"
 
 
 const Hero = () => {
+
+const smoothScroll = () =>{
+  document.getElementById('popular').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+  
+
+
   return (
     <>
       <div className="Back-ground" style={{backgroundImage: `url(${Image})`}}>
@@ -16,10 +25,10 @@ const Hero = () => {
               Discover the infinit choices and order what you need just with the
               right size and quality
             </h2>
-            <ButtonLink to="/Discover" className="btn">
+            <button className="btn" onClick={smoothScroll}>
               
               <FaCut></FaCut>Discover
-            </ButtonLink>
+            </button>
           </div>
         </div>
         
