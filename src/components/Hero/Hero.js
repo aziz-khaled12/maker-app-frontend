@@ -2,12 +2,13 @@ import React from "react";
 import "./Hero.css";
 import ButtonLink from "../Button/button";
 import { FaCut } from "react-icons/fa";
+import Image from "../../assets/maker-background.jpg"
 
 
 const Hero = () => {
   return (
     <>
-      <div className="Back-ground" /*style={{backgroundImage: `url(${Image})`}}*/>
+      <div className="Back-ground" style={{backgroundImage: `url(${Image})`}}>
         <div className="Hero-container">
           <div className="Hero-left">
             <h1>Make it as you like it</h1>
