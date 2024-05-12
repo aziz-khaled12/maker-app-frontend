@@ -462,10 +462,16 @@ const ProductPage = () => {
                         onChange={handleQuantityChange}
                       />
                     </div>
+                    <div className="container-modal">
+                          <label
+                            htmlFor="custom"
+                            className="custom-label-modal"
+                          >
+                            add something:
+                          </label>
+                          <input type="text" placeholder="add something specific the seller should know"/>
+                        </div>
                     <div className="buttons-actions">
-                      <button className="buy-now-btn" onClick={handleOpen}>
-                        Buy Now
-                      </button>
                       <button
                         className="buy-now-btn"
                         type="button"
@@ -473,6 +479,10 @@ const ProductPage = () => {
                       >
                         Back
                       </button>
+                      <button className="buy-now-btn" onClick={handleOpen}>
+                        Buy Now
+                      </button>
+                      
                     </div>
                   </form>
                 </div>

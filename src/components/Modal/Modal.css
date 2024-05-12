@@ -30,7 +30,7 @@
   position: absolute;
   margin: 15px;
   font-size: 20px;
-
+  right: 0;
 }
 
 .container-modal input,
@@ -38,18 +38,20 @@ select {
   width: 100%;
   height: 100%;
   outline: none;
-  border: 1px var(--text) solid;
+  border: 1px var(--primary) solid;
   background-color: var(--background);
   color: var(--text);
   padding: 10px;
+  border-radius: 8px;
 }
 
 .container-modal input {
   outline: none;
   background-color: var(--background);
   color: var(--text);
-  border: 1px var(--text) solid;
+  border: 1px var(--primary) solid;
   padding: 10px;
+  border-radius: 8px;
 }
 
 .buy-now-btn {
@@ -57,19 +59,14 @@ select {
     color: var(--text);
     height: 30px;
     width: 110px;
-    border: 1px var(--text) solid;
+    border: 1px var(--primary) solid;
+    border-radius: 8px;
 }
 
 .buy-now-btn:hover {
-  background-color: var(--text);
-  color: var(--secondary);
+  background-color: var(--primary);
+  color: var(--background);
   transition-duration: 0.2s;
-}
-
-.close-button {
-  width: 30px;
-  height: 30px;
-  position: absolute;
 }
 
 .buttons-actions{
