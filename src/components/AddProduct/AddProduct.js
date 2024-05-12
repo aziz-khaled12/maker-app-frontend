@@ -5,7 +5,7 @@ import Select from "react-dropdown-select";
 import Box from "@mui/material/Box";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import Modal from "@mui/material/Modal";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -637,7 +637,7 @@ const ProductAdd = () => {
                     labelField="name"
                     valueField="name"
                     onChange={(value) => handleColorChange(value)}
-                    color="#704731"
+                    color="var(--primary)"
                     style={{
                       color: "black",
                       "min-height": "60px",
@@ -677,7 +677,7 @@ const ProductAdd = () => {
                   </span>
                 </span>
 
-                <div className="dropdown">
+                <div className="size-drop">
                   <div className="checkbox-div">
                     <input
                       className="checkbox-size"
@@ -703,7 +703,7 @@ const ProductAdd = () => {
                       onChange={(value) =>
                         handleSizeSelection(value, "letters")
                       }
-                      color="#704731"
+                      color="var(--primary)"
                       style={{
                         color: "black",
                         "min-height": "60px",
@@ -712,7 +712,7 @@ const ProductAdd = () => {
                     ></Select>
                   </div>
                 </div>
-                <div className="dropdown">
+                <div className="size-drop">
                   <div className="checkbox-div">
                     <input
                       className="checkbox-size"
@@ -736,7 +736,7 @@ const ProductAdd = () => {
                       onChange={(value) =>
                         handleSizeSelection(value, "numbers")
                       }
-                      color="#704731"
+                      color="var(--primary)"
                       style={{
                         color: "black",
                         "min-height": "60px",
@@ -745,7 +745,7 @@ const ProductAdd = () => {
                     ></Select>
                   </div>
                 </div>
-                <div className="dropdown">
+                <div className="size-drop">
                   <div className="checkbox-div">
                     <input
                       className="checkbox-size"
@@ -762,7 +762,7 @@ const ProductAdd = () => {
                     name="custom-size"
                     value={selctedCutom}
                     onChange={handleCustomSize}
-                    placeholder="Enter materials (separated by comma, semicolon, or newline)..."
+                    placeholder="Enter sizes (separated by comma, semicolon, or newline)..."
                   />
                 </div>
               </div>
@@ -772,8 +772,6 @@ const ProductAdd = () => {
             <button type="submit" className="add-btn">
               Add Product
             </button>
-            <button className="add-btn" type="button" onClick={handleOpen}> trigger</button>
-           
           </form>
         </div>
         <div className="big-preview-container"></div>
@@ -788,15 +786,15 @@ const ProductAdd = () => {
         <Box sx={style}>
           <div className="success-container">
             <div className="upper-suc">
-            <FaRegCircleCheck />
+              <FaRegCircleCheck />
             </div>
             <div className="lower-suc">
               <div className="suc-txt">
                 <h1>Great!</h1>
                 <p>Your Product has been created successfully.</p>
               </div>
-              <Link className="suc-btn" to ="/">
-                      Go to the home page
+              <Link className="suc-btn" to="/">
+                Go to the home page
               </Link>
             </div>
           </div>

@@ -1,12 +1,11 @@
 .Back-ground {
   display: flex;
-  background-size: cover;
-  height: 500px;
+  background-size: contain;
+  height: 480px;
   width: 100%;
   margin: 0;
   align-items: center;
   justify-content: center;
-  background-size: cover;
 
 }
 

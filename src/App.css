@@ -35,7 +35,7 @@
 .routes-container {
   width: 100%;
   margin-bottom: 50px;
-  min-height: 100vh;
+  min-height: 48vh;
   display: flex;
   align-items: center;
   justify-content: center;
