@@ -54,11 +54,11 @@ a {
   transition-duration: 0.2s;
 }
 
-.logo-container {
+/* .logo-container {
   display: flex;
   width: 60px;
   height: 60px;
-}
+} */
 
 .logo-container img {
   width: 100%;

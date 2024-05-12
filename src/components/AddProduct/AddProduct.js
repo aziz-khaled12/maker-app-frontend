@@ -772,6 +772,7 @@ const ProductAdd = () => {
             <button type="submit" className="add-btn">
               Add Product
             </button>
+            <button className="add-btn" type="button" onClick={handleOpen}> trigger</button>
            
           </form>
         </div>
