@@ -2,7 +2,7 @@ import React from "react";
 import "./Hero.css";
 import ButtonLink from "../Button/button";
 import { FaCut } from "react-icons/fa";
-import Image from "../../assets/maker-background.jpg"
+import Image from "../../assets/maker-background2.png"
 
 
 const Hero = () => {
