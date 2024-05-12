@@ -66,9 +66,9 @@ const Navbar = () => {
         <div className="container">
           <Link className="logo" to="/">
             <div className="logo-container">
-              <img src={MakerLogo} alt="logo" />
+              {/* <img src={MakerLogo} alt="logo" /> */}
             </div>
-            <h2></h2>
+            <h2>Maker dz</h2>
           </Link>
           <form
             onSubmit={handleSearchSubmit}
