@@ -1,13 +1,13 @@
 .Back-ground {
   display: flex;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   width: 100%;
   margin: 0;
   align-items: center;
   justify-content: center;
   background-size: cover;
-  
+
 }
 
 .Hero-container {
