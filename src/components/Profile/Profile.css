@@ -98,8 +98,8 @@
         height: 400px;
     }
     .huge-profile-container{
-        flex-direction: column;
         height: 135vh;
+        gap: 50px;
     }
     .huge-profile-container .big-profile-container{
         width: 100%;
